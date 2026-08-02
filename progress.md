@@ -79,6 +79,13 @@ c'est son ampleur qui reste à chiffrer sur le jeu annoté.
   référence doit venir de l'utilisateur : l'établir à partir des seules sorties du système
   reviendrait à l'évaluer contre lui-même.
 
+**Publication (2026-08-02)**
+- Commit initial `5f49ea3` — 45 fichiers, 248 Ko, sans secret ni PDF
+- Poussé sur https://github.com/owlxx6/regulatory-rag-assistant (public)
+- Obstacle rencontré : le token à permissions fines n'accordait pas `Contents: write`.
+  L'API `repos/{owner}/{repo}` renvoyait pourtant `push: true` — elle reflète le rôle du
+  compte, pas les droits effectifs du token. Résolu par un token OAuth (`--scopes repo`).
+
 **Question ouverte pour l'évaluation**
 Le seuil « < 2 s hors génération » est inatteignable avec un reranking sur 30 candidats sur ce
 matériel. L'issue dépend du gain de recall mesuré — si le reranking n'apporte pas les 10 points
