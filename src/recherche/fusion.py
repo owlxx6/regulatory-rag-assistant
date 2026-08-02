@@ -7,10 +7,18 @@ exigerait une calibration par corpus. k=60 est la valeur canonique de la littér
 elle amortit l'écart entre les premiers rangs sans écraser la queue de liste.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from src.config import parametres
-from src.recherche import lexicale, vectorielle
+
+# Import réservé au typage : la fusion ne manipule que des rangs et des attributs communs,
+# elle n'a besoin d'aucune implémentation. L'importer à l'exécution ferait dépendre ce module
+# de sentence-transformers et de torch, et le rendrait intestable en intégration continue.
+if TYPE_CHECKING:
+    from src.recherche import lexicale, vectorielle
 
 
 @dataclass
