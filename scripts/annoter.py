@@ -37,15 +37,18 @@ FICHIER = RACINE / "evaluation" / "questions.jsonl"
 LARGEUR = 78
 AIDE = """
 Commandes :
-  1,3,5   numéros des candidats pertinents (séparés par des virgules)
-  0       aucun candidat pertinent — marque la question hors-corpus
-  r ...   relancer la recherche avec une autre formulation
-  p D N   lister tous les chunks du document D à la page N
-  d       afficher les documents et leur identifiant
-  v       revoir le contenu complet des candidats
-  s       passer cette question sans l'annoter
-  q       enregistrer et quitter
-  ?       cette aide
+  1,3,5      numéros des candidats affichés ci-dessus
+  c 34,491   identifiants de chunks directement — pour annoter un passage que la
+             recherche n'a PAS remonté (le cas qui fait chuter le recall)
+  0          aucun passage pertinent — marque la question hors-corpus
+  r ...      relancer la recherche avec une autre formulation
+  p D N      lister tous les chunks du document D à la page N
+  t ...      chercher une expression littérale dans le corpus (indépendant du RAG)
+  d          afficher les documents et leur identifiant
+  v          revoir le contenu complet des candidats
+  s          passer cette question sans l'annoter
+  q          enregistrer et quitter
+  ?          cette aide
 """
 
 
@@ -92,6 +95,57 @@ def afficher_documents(connexion: psycopg.Connection) -> None:
     for ligne in lignes:
         print(f"  {ligne[0]:3}  {ligne[1] or '?':5} {ligne[2] or '?':3} "
               f"{ligne[3] or 0:4}p  {ligne[4][:56]}")
+
+
+def chercher_litteral(connexion: psycopg.Connection, expression: str, limite: int = 12) -> None:
+    """Recherche par correspondance de sous-chaîne, volontairement hors du système RAG.
+
+    Sert à débusquer les passages que la recherche hybride ne remonte pas — typiquement une
+    question française dont la réponse est dans un passage anglais, que le `tsvector` français
+    ne peut pas apparier. Utiliser les sorties du RAG comme référence d'annotation le rendrait
+    juge de sa propre copie ; cette recherche-ci est indépendante.
+    """
+    lignes = connexion.execute(
+        """
+        SELECT c.id, c.document_id, c.section, c.page_debut,
+               substring(c.contenu from '.{0,90}' || %s || '.{0,90}')
+        FROM chunks c
+        WHERE c.contenu ILIKE '%%' || %s || '%%'
+        ORDER BY c.document_id, c.id
+        LIMIT %s
+        """,
+        (expression, expression, limite),
+    ).fetchall()
+
+    if not lignes:
+        print(f"  Aucun chunk ne contient « {expression} ».")
+        return
+    print(f"\n  {len(lignes)} chunk(s) contenant « {expression} » :")
+    for ligne in lignes:
+        extrait = (ligne[4] or "").replace("\n", " ")
+        print(f"\n─── chunk {ligne[0]} — doc {ligne[1]} — {ligne[2]} — p. {ligne[3]}")
+        print(f"    …{extrait}…")
+
+
+def afficher_chunks(connexion: psycopg.Connection, ids: list[int]) -> list[int]:
+    """Affiche les chunks demandés par identifiant et retourne ceux qui existent."""
+    lignes = connexion.execute(
+        """
+        SELECT c.id, c.document_id, c.section, c.page_debut, c.page_fin, c.contenu
+        FROM chunks c WHERE c.id = ANY(%s) ORDER BY c.id
+        """,
+        (ids,),
+    ).fetchall()
+
+    trouves = [ligne[0] for ligne in lignes]
+    for ligne in lignes:
+        print(f"\n─── chunk {ligne[0]} — doc {ligne[1]} — {ligne[2]} — p. {ligne[3]}-{ligne[4]}")
+        print("    " + ligne[5][:400].replace("\n", "\n    ") + "…")
+
+    manquants = sorted(set(ids) - set(trouves))
+    if manquants:
+        print(f"\n  Identifiant(s) inexistant(s) en base : {manquants}")
+    return trouves
 
 
 def afficher_chunks_page(connexion: psycopg.Connection, document_id: int, page: int) -> None:
@@ -181,6 +235,33 @@ def annoter(connexion: psycopg.Connection, entrees: list[dict], arguments) -> No
                     afficher_chunks_page(connexion, int(morceaux[1]), int(morceaux[2]))
                 else:
                     print("  Format attendu : p <document_id> <page>  (voir `d`)")
+            elif saisie.startswith("t "):
+                expression = saisie[2:].strip()
+                if expression:
+                    chercher_litteral(connexion, expression)
+            elif saisie.startswith("c "):
+                # Annotation par identifiant de chunk : indispensable pour référencer un
+                # passage que la recherche n'a pas remonté. Sans cela l'outil ne permettrait
+                # d'annoter que ce que le système trouve déjà, et le recall serait toujours
+                # proche de 1 par construction.
+                try:
+                    ids = [int(n) for n in saisie[2:].replace(" ", "").split(",") if n]
+                except ValueError:
+                    print("  Format attendu : c 34,491")
+                    continue
+                if not ids:
+                    print("  Aucun identifiant fourni.")
+                    continue
+
+                trouves = afficher_chunks(connexion, ids)
+                if not trouves:
+                    continue
+                confirmation = input(f"\n  Retenir {trouves} ? [O/n] ").strip().lower()
+                if confirmation in ("", "o", "oui", "y", "yes"):
+                    entree["chunks_pertinents"] = sorted(trouves)
+                    enregistrer(entrees)
+                    print(f"  → chunks pertinents : {sorted(trouves)}")
+                    break
             else:
                 try:
                     numeros = [int(n) for n in saisie.replace(" ", "").split(",") if n]
