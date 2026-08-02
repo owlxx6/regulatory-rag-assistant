@@ -1,0 +1,27 @@
+# Corpus — documents publics, non redistribués par ce dépôt.
+# Ils sont récupérés depuis leurs URL officielles par scripts/download_corpus.py
+data/raw/
+data/cache/
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Modèles téléchargés (sentence-transformers, cross-encoder)
+.cache/
+models/
+
+# macOS
+.DS_Store
+
+# Résultats d'évaluation : les JSON sont versionnés (ce sont les preuves chiffrées),
+# pas les artefacts intermédiaires.
+evaluation/resultats/*.tmp
