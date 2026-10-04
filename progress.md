@@ -97,3 +97,33 @@ d'intégration sur la base.
 
 **En attente de décision**
 - Commit initial non fait — à la demande de l'utilisateur.
+
+## Session 4 — 2026-10-04
+
+**Reprise après 9 semaines d'interruption**
+- Volume Docker `rag-reglementaire_pgdata` intact : 11 documents, 1616 chunks, tous
+  vectorisés et indexés lexicalement. Aucune ré-indexation nécessaire.
+- Modèles toujours en cache local (4,7 Go), venv fonctionnel, 50 tests passent
+- Conteneur redémarré, chaîne vérifiée (lexical 49 ms)
+
+**Fait**
+- `scripts/pre_selection.py` : propose des chunks candidats pour l'annotation sans
+  passer par le RAG. Trois méthodes indépendantes, par ordre de priorité — localisation
+  par page depuis le champ `indice`, correspondance de section, correspondance littérale
+  du seuil chiffré, et en repli les sigles de la question (NSFR, HQLA, ICAAP…).
+- Résultat : 359 candidats proposés sur 29 des 41 questions. Les 12 restantes sont
+  surtout des questions multi-passages, sans ancre localisable.
+
+**Deux bugs trouvés et corrigés en écrivant ce script**
+- Chevauchement de pages : `page_debut <= ANY(pages) AND page_fin >= ANY(pages)` est
+  satisfait par deux pages différentes et ramenait presque tout le document. Remplacé
+  par un `EXISTS` sur une même page.
+- Recherche de pourcentage : dans un `LIKE`, « % » est un joker, donc le motif `%3%%`
+  signifiait « contient le chiffre 3 ». Filtrage déplacé en Python, avec le même motif
+  que l'extrait affiché.
+
+**Toujours bloqué sur**
+- Annotation des 41 questions dans-corpus : 0 faite. Le travail est désormais réduit à
+  de la validation de candidats, mais la décision reste humaine.
+- Clé `ANTHROPIC_API_KEY` absente : la chaîne de génération n'a jamais produit de
+  réponse réelle, `requetes` est vide.
