@@ -260,8 +260,10 @@ def annoter(connexion: psycopg.Connection, entrees: list[dict], arguments) -> No
                 if confirmation in ("", "o", "oui", "y", "yes"):
                     entree["chunks_pertinents"] = sorted(trouves)
                     enregistrer(entrees)
-                    print(f"  → chunks pertinents : {sorted(trouves)}")
+                    print(f"  → enregistré : chunks pertinents {sorted(trouves)}")
                     break
+                # Un refus silencieux laisse croire que l'annotation a été prise en compte.
+                print("  → annulé, rien n'a été enregistré. La question reste à annoter.")
             else:
                 try:
                     numeros = [int(n) for n in saisie.replace(" ", "").split(",") if n]

@@ -58,6 +58,76 @@ Décision : ne pas complexifier avant d'avoir mesuré.
 
 ---
 
+## 2026-10-06 — La recherche lexicale était inopérante : OU au lieu de ET
+
+**Symptôme.** Première évaluation du volet lexical : recall de 0,00 à tous les k, et
+`chunks_retournes` vide sur les 41 questions. Latence médiane de 0,7 ms — la requête ne
+ramenait rien du tout.
+
+**Cause.** `websearch_to_tsquery` combine les termes en **ET**. Une question de douze mots
+exigeait donc les douze lexèmes dans un même chunk, ce qui n'arrive jamais. Ce comportement
+convient à une barre de recherche où l'on saisit deux ou trois mots-clés ; il est inadapté à une
+question en langage naturel.
+
+**Pourquoi ce n'était pas apparu plus tôt.** Les tests manuels portaient sur des requêtes
+courtes (« ratio de levier minimal »), où l'intersection des termes reste plausible. Le bug ne se
+révèle qu'avec de vraies questions — donc seulement en présence du jeu d'évaluation. Les
+latences mesurées en août (hybride 222 ms, quasi identique au vectoriel 227 ms) en portaient
+d'ailleurs la trace : le volet lexical ne coûtait rien parce qu'il ne faisait rien.
+
+**Correction.** Les lexèmes de la question sont extraits par `to_tsvector` puis combinés en OU.
+Tout chunk partageant au moins un lexème devient candidat, et `ts_rank_cd` les classe sur la
+densité et la proximité des termes. Extraire les lexèmes via `to_tsvector` garantit que
+racinisation et mots vides suivent exactement la configuration de la colonne indexée.
+
+**Leçon à retenir.** Un composant peut être silencieusement inopérant et laisser passer tests
+unitaires, revue de code et mesures de latence. Seule une mesure de qualité sur des données
+réalistes l'a révélé. C'est l'argument le plus concret en faveur d'un jeu d'évaluation.
+
+---
+
+## 2026-10-06 — RRF non pondéré dégrade le meilleur récupérateur
+
+**Mesure.** recall@5 : vectoriel seul 0,512, hybride RRF 0,366. La fusion fait **perdre
+14,6 points**.
+
+**Cause.** RRF attribue `1/(k + rang)` sans distinction d'origine. Un résultat lexical au rang 1
+reçoit donc le même poids qu'un résultat vectoriel au rang 1, alors que le volet lexical
+plafonne à 0,195 de recall@5 contre 0,512 pour le vectoriel. La fusion dilue le bon classement
+dans le bruit du mauvais.
+
+**Ce que cela dit de RRF.** Sa robustesse tient à une hypothèse implicite — des récupérateurs de
+qualité comparable. Hypothèse fausse sur ce corpus, pour une raison structurelle : le `tsvector`
+français ne peut rien apparier sur 76 % des chunks, qui sont anglophones.
+
+**Pistes, dans l'ordre de préférence.** Corriger d'abord la cause (indexation lexicale par
+langue), pas le symptôme. Si l'écart persiste, pondérer les contributions RRF selon le recall
+mesuré de chaque récupérateur, ou n'activer la fusion que lorsque le score lexical dépasse un
+seuil. Aucune de ces pistes n'a de sens avant que l'indexation bilingue soit traitée.
+
+---
+
+## 2026-10-06 — L'écart français/anglais est de 37 points
+
+**Mesure.** recall@5 selon la langue du passage attendu, configuration hybride + reranking
+léger : **0,89 en français** (8 questions sur 9), **0,52 en anglais** (16 sur 31).
+
+**Interprétation.** Les questions sont posées en français. Quand la réponse est dans la notice
+ACPR, les trois étages fonctionnent — lexical, vectoriel, reranking. Quand elle est dans un texte
+du Comité de Bâle, le volet lexical est structurellement aveugle et le vectoriel multilingue
+porte seul.
+
+**Conséquence mesurable sur les types de questions.** Les questions factuelles tombent à 0,53,
+sous les définitions (0,73) et les références explicites (0,71), alors qu'elles devraient être
+les plus faciles. Les seuils chiffrés du corpus sont énoncés en anglais : la cause racine se
+propage jusque dans la typologie.
+
+**La limite consignée le 31 juillet est donc confirmée et chiffrée.** Elle était alors une
+hypothèse prudente ; elle est maintenant un résultat. L'ordre — documenter la limite, puis la
+mesurer, puis décider — est ce qui rend la correction défendable plutôt qu'improvisée.
+
+---
+
 ## 2026-08-02 — Latence du reranking : le critère « < 2 s » n'est pas tenu
 
 **Mesure.** Latences à chaud, corpus de 1616 chunks, 5 questions × 2 passages, Mac Intel sans

@@ -33,26 +33,69 @@ budget, y compris en tronquant les passages à 128 tokens.
 
 ### Qualité de la récupération
 
-> **En attente.** Les métriques de recall, de MRR et d'abstention exigent le jeu d'évaluation
-> annoté. 15 des 56 questions sont annotées (les hors-corpus) ; les 41 autres demandent une
-> lecture des documents sources. Le tableau ci-dessous sera rempli avec les sorties de
-> `evaluation/evaluer.py`, jamais à la main.
+Jeu de 56 questions annotées à la main, dont 15 hors-corpus. Les 41 questions dans-corpus sont
+évaluées ci-dessous ; recall@k = proportion de questions dont au moins un passage pertinent
+figure dans le top k.
 
-| Configuration | R@1 | R@3 | R@5 | R@10 | MRR |
-|---|---|---|---|---|---|
-| Vectoriel seul | — | — | — | — | — |
-| Lexical seul | — | — | — | — | — |
-| Hybride (RRF) | — | — | — | — | — |
-| Hybride + reranking léger | — | — | — | — | — |
-| Hybride + reranking | — | — | — | — | — |
+| Configuration | R@1 | R@3 | R@5 | R@10 | MRR | p50 |
+|---|---|---|---|---|---|---|
+| Lexical seul | 0,098 | 0,146 | 0,195 | 0,317 | 0,146 | 17 ms |
+| Hybride (RRF) | 0,195 | 0,317 | 0,366 | 0,537 | 0,289 | 221 ms |
+| Vectoriel seul | 0,268 | 0,415 | 0,512 | 0,537 | 0,361 | 184 ms |
+| **Hybride + reranking léger** | **0,366** | **0,561** | **0,610** | 0,610 | **0,454** | 9 317 ms |
+| Hybride + reranking (bge) | *en cours* | | | | | 139 533 ms |
 
-Objectifs : recall@5 ≥ 0,80, gain du reranking ≥ +10 points, abstention correcte ≥ 0,90.
+**Le seuil de 0,80 au recall@5 n'est pas atteint.** Le meilleur résultat est 0,610. Les trois
+constats qui expliquent cet écart valent davantage que le chiffre lui-même.
 
-**Observation qualitative en attendant la mesure.** Sur « quel est le ratio de levier minimal
-exigé ? », la recherche vectorielle seule remonte en deuxième position une ligne de table des
-matières et en troisième un passage sur le LCR — deux résultats sans valeur. Après reranking,
-les deux disparaissent et le bon passage passe d'un score de 0,877 à 0,995. Le gain existe ;
-c'est son ampleur qui reste à chiffrer.
+#### 1. La recherche hybride dégrade le vectoriel seul
+
+0,366 contre 0,512 au recall@5. RRF pondère les deux listes à égalité, or le volet lexical
+plafonne à 0,195 : il injecte surtout du bruit. Un mauvais résultat lexical au rang 1 reçoit
+exactement le même poids qu'un bon résultat vectoriel au rang 1.
+
+RRF suppose des récupérateurs de qualité comparable. Cette hypothèse est fausse ici, et c'est
+mesurable — pas une intuition.
+
+#### 2. L'écart entre français et anglais est de 37 points
+
+| Langue du passage attendu | recall@5 |
+|---|---|
+| Français | **0,89** (8/9) |
+| Anglais | **0,52** (16/31) |
+
+Les questions sont posées en français. Le `tsvector` est en configuration `french` pour tout le
+corpus, contrainte imposée par les colonnes générées de PostgreSQL (voir
+[`docs/decisions.md`](docs/decisions.md)). Sur les 76 % de chunks anglophones, la recherche
+lexicale ne peut structurellement rien apparier, et le vectoriel doit porter seul.
+
+C'est la cause racine du point 1 : pour 31 des 41 questions, la liste lexicale soumise à RRF
+est du bruit pur.
+
+#### 3. Les questions factuelles sont les plus mal servies
+
+| Type de question | recall@5 |
+|---|---|
+| Définition | 0,73 |
+| Référence explicite | 0,71 |
+| Factuelle | 0,53 |
+| Multi-passages | 0,50 |
+
+Contre-intuitif : les questions à réponse chiffrée précise devraient être les plus faciles. Elles
+sont les plus dures parce que les seuils chiffrés du corpus sont énoncés dans les textes du
+Comité de Bâle, en anglais. Le point 2 se propage directement ici.
+
+#### Ce que le reranking apporte
+
++9,8 points de recall@5 sur le vectoriel seul (0,512 → 0,610), +24,4 points sur l'hybride.
+L'objectif était un gain d'au moins 10 points : il est manqué de deux dixièmes de point.
+
+Reproduire ces mesures :
+
+```bash
+python evaluation/evaluer.py                  # les cinq configurations
+python evaluation/analyser.py                 # ventilation par type et par langue
+```
 
 ---
 
