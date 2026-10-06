@@ -1,0 +1,764 @@
+{
+  "date": "2026-10-06T22:26:03",
+  "nb_questions_total": 56,
+  "nb_hors_corpus": 15,
+  "parametres": {
+    "modele_embedding": "intfloat/multilingual-e5-large",
+    "modele_reranker": "BAAI/bge-reranker-v2-m3",
+    "top_k_candidats": 30,
+    "rrf_k": 60
+  },
+  "rapports": [
+    {
+      "configuration": "hybride",
+      "nb_questions": 41,
+      "recall@1": 0.1951,
+      "recall@3": 0.3171,
+      "recall@5": 0.3659,
+      "recall@10": 0.5366,
+      "mrr": 0.2894,
+      "latence_mediane_ms": 221.0,
+      "latence_p95_ms": 308.6,
+      "details": [
+        {
+          "id": "q001",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1329,
+            1336,
+            1508,
+            1343,
+            1353,
+            500,
+            1357,
+            1354,
+            1338,
+            126
+          ],
+          "latence_ms": 226.2
+        },
+        {
+          "id": "q002",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1329,
+            1508,
+            1336,
+            1353,
+            1592,
+            126,
+            1343,
+            1352,
+            1351,
+            1497
+          ],
+          "latence_ms": 205.2
+        },
+        {
+          "id": "q003",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1329,
+            1508,
+            1343,
+            1338,
+            1341,
+            1563,
+            573,
+            1527,
+            1541,
+            1351
+          ],
+          "latence_ms": 251.0
+        },
+        {
+          "id": "q004",
+          "type": "factuelle",
+          "rang_premier_pertinent": 2,
+          "chunks_retournes": [
+            1508,
+            498,
+            573,
+            1280,
+            1541,
+            499,
+            1513,
+            917,
+            1315,
+            904
+          ],
+          "latence_ms": 176.5
+        },
+        {
+          "id": "q005",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1541,
+            1409,
+            1540,
+            1548,
+            1558,
+            1549,
+            1568,
+            1582,
+            1554,
+            1550
+          ],
+          "latence_ms": 308.6
+        },
+        {
+          "id": "q006",
+          "type": "factuelle",
+          "rang_premier_pertinent": 2,
+          "chunks_retournes": [
+            1563,
+            831,
+            1574,
+            1508,
+            1540,
+            1577,
+            1414,
+            826,
+            29,
+            573
+          ],
+          "latence_ms": 217.0
+        },
+        {
+          "id": "q007",
+          "type": "factuelle",
+          "rang_premier_pertinent": 2,
+          "chunks_retournes": [
+            1329,
+            1341,
+            1343,
+            1342,
+            1344,
+            1360,
+            1357,
+            1508,
+            1336,
+            1527
+          ],
+          "latence_ms": 192.8
+        },
+        {
+          "id": "q008",
+          "type": "factuelle",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            1336,
+            1352,
+            1351,
+            1353,
+            1337,
+            1508,
+            1343,
+            1329,
+            1354,
+            1349
+          ],
+          "latence_ms": 353.9
+        },
+        {
+          "id": "q009",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1343,
+            1341,
+            1342,
+            126,
+            1527,
+            1329,
+            1508,
+            1550,
+            1344,
+            500
+          ],
+          "latence_ms": 252.5
+        },
+        {
+          "id": "q010",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1546,
+            1542,
+            1553,
+            1545,
+            1568,
+            1543,
+            1291,
+            1541,
+            1567,
+            1550
+          ],
+          "latence_ms": 246.3
+        },
+        {
+          "id": "q011",
+          "type": "factuelle",
+          "rang_premier_pertinent": 5,
+          "chunks_retournes": [
+            1542,
+            1579,
+            1582,
+            1291,
+            695,
+            822,
+            1546,
+            1545,
+            787,
+            1550
+          ],
+          "latence_ms": 284.9
+        },
+        {
+          "id": "q012",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1400,
+            1438,
+            1501,
+            1420,
+            1588,
+            1472,
+            1493,
+            1421,
+            1418,
+            1475
+          ],
+          "latence_ms": 243.2
+        },
+        {
+          "id": "q013",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1541,
+            1543,
+            1550,
+            1580,
+            1542,
+            1511,
+            1558,
+            678,
+            1466,
+            674
+          ],
+          "latence_ms": 206.8
+        },
+        {
+          "id": "q014",
+          "type": "factuelle",
+          "rang_premier_pertinent": 6,
+          "chunks_retournes": [
+            1563,
+            1574,
+            1461,
+            1541,
+            1414,
+            831,
+            573,
+            833,
+            1508,
+            29
+          ],
+          "latence_ms": 214.2
+        },
+        {
+          "id": "q015",
+          "type": "factuelle",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1418,
+            1419,
+            1388,
+            1421,
+            1397,
+            1378,
+            1422,
+            1391,
+            1393,
+            1379
+          ],
+          "latence_ms": 287.7
+        },
+        {
+          "id": "q016",
+          "type": "definition",
+          "rang_premier_pertinent": 2,
+          "chunks_retournes": [
+            1563,
+            831,
+            1574,
+            645,
+            640,
+            1540,
+            1577,
+            1508,
+            826,
+            641
+          ],
+          "latence_ms": 194.6
+        },
+        {
+          "id": "q017",
+          "type": "definition",
+          "rang_premier_pertinent": 9,
+          "chunks_retournes": [
+            1541,
+            1553,
+            1540,
+            1542,
+            1508,
+            1580,
+            1568,
+            1550,
+            667,
+            227
+          ],
+          "latence_ms": 204.0
+        },
+        {
+          "id": "q018",
+          "type": "definition",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1542,
+            1548,
+            1281,
+            1567,
+            793,
+            796,
+            1550,
+            679,
+            1578,
+            683
+          ],
+          "latence_ms": 192.5
+        },
+        {
+          "id": "q019",
+          "type": "definition",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1508,
+            573,
+            1513,
+            1280,
+            917,
+            1541,
+            499,
+            1315,
+            904,
+            1511
+          ],
+          "latence_ms": 196.0
+        },
+        {
+          "id": "q020",
+          "type": "definition",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1351,
+            1360,
+            1336,
+            1329,
+            1352,
+            1353,
+            1357,
+            1343,
+            1354,
+            67
+          ],
+          "latence_ms": 213.1
+        },
+        {
+          "id": "q021",
+          "type": "definition",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            1304,
+            1305,
+            1306,
+            1589,
+            1577,
+            1481,
+            1291,
+            1375,
+            1610,
+            1300
+          ],
+          "latence_ms": 206.4
+        },
+        {
+          "id": "q022",
+          "type": "definition",
+          "rang_premier_pertinent": 7,
+          "chunks_retournes": [
+            1215,
+            1194,
+            1232,
+            1331,
+            1218,
+            1257,
+            1192,
+            50,
+            1332,
+            1230
+          ],
+          "latence_ms": 230.5
+        },
+        {
+          "id": "q023",
+          "type": "definition",
+          "rang_premier_pertinent": 6,
+          "chunks_retournes": [
+            1194,
+            1232,
+            1190,
+            1229,
+            1553,
+            1192,
+            1332,
+            1230,
+            1331,
+            1542
+          ],
+          "latence_ms": 221.0
+        },
+        {
+          "id": "q024",
+          "type": "definition",
+          "rang_premier_pertinent": 7,
+          "chunks_retournes": [
+            1475,
+            1476,
+            1484,
+            1485,
+            1483,
+            1466,
+            987,
+            1329,
+            1478,
+            472
+          ],
+          "latence_ms": 201.3
+        },
+        {
+          "id": "q025",
+          "type": "definition",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            282,
+            1388,
+            1392,
+            1391,
+            283,
+            1347,
+            1389,
+            1386,
+            281,
+            186
+          ],
+          "latence_ms": 216.4
+        },
+        {
+          "id": "q026",
+          "type": "definition",
+          "rang_premier_pertinent": 5,
+          "chunks_retournes": [
+            1563,
+            834,
+            840,
+            838,
+            831,
+            1574,
+            1414,
+            841,
+            1303,
+            1302
+          ],
+          "latence_ms": 193.5
+        },
+        {
+          "id": "q027",
+          "type": "multi_passages",
+          "rang_premier_pertinent": 2,
+          "chunks_retournes": [
+            1360,
+            1336,
+            1329,
+            1349,
+            1357,
+            1354,
+            1344,
+            1527,
+            1587,
+            1361
+          ],
+          "latence_ms": 209.2
+        },
+        {
+          "id": "q028",
+          "type": "multi_passages",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1542,
+            1545,
+            1579,
+            1546,
+            1550,
+            1578,
+            1548,
+            1567,
+            1544,
+            1568
+          ],
+          "latence_ms": 218.9
+        },
+        {
+          "id": "q029",
+          "type": "multi_passages",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1591,
+            1586,
+            1590,
+            543,
+            555,
+            1282,
+            569,
+            568,
+            1592,
+            1202
+          ],
+          "latence_ms": 228.8
+        },
+        {
+          "id": "q030",
+          "type": "multi_passages",
+          "rang_premier_pertinent": 9,
+          "chunks_retournes": [
+            1360,
+            1351,
+            1353,
+            1352,
+            1336,
+            1357,
+            1354,
+            1329,
+            1345,
+            1347
+          ],
+          "latence_ms": 221.3
+        },
+        {
+          "id": "q031",
+          "type": "multi_passages",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1185,
+            1032,
+            1187,
+            1044,
+            1041,
+            1186,
+            1604,
+            1029,
+            1242,
+            1374
+          ],
+          "latence_ms": 206.7
+        },
+        {
+          "id": "q032",
+          "type": "multi_passages",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1508,
+            1509,
+            573,
+            1513,
+            1280,
+            50,
+            1511,
+            628,
+            572,
+            1493
+          ],
+          "latence_ms": 210.3
+        },
+        {
+          "id": "q033",
+          "type": "multi_passages",
+          "rang_premier_pertinent": 8,
+          "chunks_retournes": [
+            1475,
+            1476,
+            1484,
+            1485,
+            1605,
+            1603,
+            1279,
+            995,
+            986,
+            1329
+          ],
+          "latence_ms": 221.7
+        },
+        {
+          "id": "q034",
+          "type": "multi_passages",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            1195,
+            1190,
+            1248,
+            1202,
+            1194,
+            1238,
+            1246,
+            1234,
+            1232,
+            1236
+          ],
+          "latence_ms": 490.9
+        },
+        {
+          "id": "q035",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            1502,
+            1503,
+            1291,
+            1524,
+            1310,
+            1312,
+            1316,
+            1509,
+            1422,
+            1501
+          ],
+          "latence_ms": 210.4
+        },
+        {
+          "id": "q036",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            1360,
+            1302,
+            1347,
+            1351,
+            1503,
+            1352,
+            1588,
+            1415,
+            1343,
+            1303
+          ],
+          "latence_ms": 230.2
+        },
+        {
+          "id": "q037",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1463,
+            1383,
+            1500,
+            1291,
+            1310,
+            1588,
+            1292,
+            1502,
+            1303,
+            1578
+          ],
+          "latence_ms": 226.6
+        },
+        {
+          "id": "q038",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            1512,
+            1383,
+            1524,
+            1501,
+            1548,
+            1538,
+            1348,
+            1510,
+            1562,
+            1561
+          ],
+          "latence_ms": 238.9
+        },
+        {
+          "id": "q039",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1400,
+            591,
+            1406,
+            594,
+            1395,
+            598,
+            1420,
+            888,
+            1418,
+            965
+          ],
+          "latence_ms": 240.2
+        },
+        {
+          "id": "q040",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": 1,
+          "chunks_retournes": [
+            215,
+            1333,
+            1568,
+            1300,
+            569,
+            1430,
+            824,
+            1569,
+            94,
+            1469
+          ],
+          "latence_ms": 235.8
+        },
+        {
+          "id": "q041",
+          "type": "reference_explicite",
+          "rang_premier_pertinent": null,
+          "chunks_retournes": [
+            1302,
+            1277,
+            1289,
+            1349,
+            1317,
+            1303,
+            1421,
+            1291,
+            1287,
+            1310
+          ],
+          "latence_ms": 230.8
+        }
+      ]
+    }
+  ]
+}

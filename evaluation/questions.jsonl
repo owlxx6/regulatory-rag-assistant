@@ -1,44 +1,44 @@
-{"id": "q001", "question": "Quel est le ratio minimal de fonds propres de base de catégorie 1 (CET1) exigé ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs189 p.20, notice ACPR p.20 — 4,5 %"}
-{"id": "q002", "question": "Quel est le ratio minimal de fonds propres de catégorie 1 (Tier 1) ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs189 p.20, notice ACPR p.20 — 6 %"}
-{"id": "q003", "question": "Quel est le ratio minimal de fonds propres totaux exigé des banques ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs189 p.20 — 8 %"}
-{"id": "q004", "question": "Quel est le ratio de levier minimal exigé ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs270 p.5, d365 p.18 — 3 %"}
-{"id": "q005", "question": "Quel était le niveau minimal du LCR au moment de son entrée en vigueur ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs238 p.8 — 60 %"}
-{"id": "q006", "question": "Quelle valeur minimale le ratio de financement stable net (NSFR) doit-il atteindre ?", "chunks_pertinents": null, "type": "factuelle", "indice": "d295 p.6 — 100 %"}
-{"id": "q007", "question": "Quel est le niveau du coussin de conservation des fonds propres ?", "chunks_pertinents": null, "type": "factuelle", "indice": "notice ACPR p.23 — 2,5 %"}
-{"id": "q008", "question": "À quel seuil de ratio CET1 la conversion des instruments de fonds propres additionnels de catégorie 1 doit-elle au minimum être déclenchée ?", "chunks_pertinents": null, "type": "factuelle", "indice": "notice ACPR p.22 — 5,125 %"}
-{"id": "q009", "question": "Quelle exigence de CET1 obtient-on en ajoutant le coussin de conservation au minimum réglementaire ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs189 p.28 — 7 %"}
-{"id": "q010", "question": "Quelle décote minimale s'applique aux actifs liquides de niveau 2A ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs238 p.23-24"}
-{"id": "q011", "question": "Quel plafond la part des actifs de niveau 2 ne doit-elle pas dépasser dans l'encours total d'actifs liquides de haute qualité ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs238"}
-{"id": "q012", "question": "Quel pourcentage de risque pondéré s'applique aux expositions sur actions non cotées de nature spéculative ?", "chunks_pertinents": null, "type": "factuelle", "indice": "d424 p.21 — 400 %"}
-{"id": "q013", "question": "Sur quelle période de tensions le LCR doit-il permettre à une banque de survivre ?", "chunks_pertinents": null, "type": "factuelle", "indice": "bcbs238 — 30 jours calendaires"}
-{"id": "q014", "question": "Sur quel horizon temporel le ratio de financement stable net est-il calculé ?", "chunks_pertinents": null, "type": "factuelle", "indice": "d295 — un an"}
-{"id": "q015", "question": "Quel taux de pondération s'applique aux expositions garanties par une hypothèque sur un bien immobilier résidentiel dans l'approche standard révisée ?", "chunks_pertinents": null, "type": "factuelle", "indice": "d424"}
-{"id": "q016", "question": "Qu'est-ce que le ratio de financement stable net (NSFR) ?", "chunks_pertinents": null, "type": "definition", "indice": "d295 §1"}
-{"id": "q017", "question": "Qu'est-ce que le ratio de liquidité à court terme (LCR) ?", "chunks_pertinents": null, "type": "definition", "indice": "bcbs238"}
-{"id": "q018", "question": "Comment se définit un actif liquide de haute qualité (HQLA) ?", "chunks_pertinents": null, "type": "definition", "indice": "bcbs238"}
-{"id": "q019", "question": "Comment le ratio de levier est-il défini et calculé ?", "chunks_pertinents": null, "type": "definition", "indice": "bcbs270, d424 §5"}
-{"id": "q020", "question": "Que recouvrent les fonds propres de base de catégorie 1 ?", "chunks_pertinents": null, "type": "definition", "indice": "bcbs189"}
-{"id": "q021", "question": "Quels critères définissent un établissement de petite taille et non complexe ?", "chunks_pertinents": null, "type": "definition", "indice": "notice ACPR §1.2.1.8 p.11"}
-{"id": "q022", "question": "Qu'est-ce que le processus interne d'évaluation de l'adéquation du capital (ICAAP) ?", "chunks_pertinents": null, "type": "definition", "indice": "EBA GL 2016/10"}
-{"id": "q023", "question": "Qu'est-ce que le processus interne d'évaluation de l'adéquation de la liquidité (ILAAP) ?", "chunks_pertinents": null, "type": "definition", "indice": "EBA GL 2016/10"}
-{"id": "q024", "question": "Comment le risque opérationnel est-il défini ?", "chunks_pertinents": null, "type": "definition", "indice": "d515"}
-{"id": "q025", "question": "Qu'entend-on par financement d'immobilier commercial à forte volatilité (HVCRE) ?", "chunks_pertinents": null, "type": "definition", "indice": "d424 §17 p.59-60"}
-{"id": "q026", "question": "Qu'est-ce que le facteur de financement stable disponible (ASF) ?", "chunks_pertinents": null, "type": "definition", "indice": "d295"}
-{"id": "q027", "question": "Quelles sont les composantes des fonds propres réglementaires et comment s'articulent-elles ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "bcbs189 — CET1, AT1, Tier 2"}
-{"id": "q028", "question": "Quelles catégories d'actifs liquides de haute qualité existent et quelles décotes leur sont appliquées ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "bcbs238 — niveau 1, 2A, 2B"}
-{"id": "q029", "question": "Quelles informations les banques doivent-elles publier au titre du pilier 3 ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "d400"}
-{"id": "q030", "question": "Quels éléments doivent être déduits des fonds propres de base de catégorie 1 ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "bcbs189, notice ACPR §2.2"}
-{"id": "q031", "question": "Quels critères l'EBA retient-elle pour l'octroi et le suivi des prêts ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "EBA GL 2020/06"}
-{"id": "q032", "question": "Quelles expositions entrent dans la mesure de l'exposition totale du ratio de levier ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "bcbs270, d365"}
-{"id": "q033", "question": "Quels principes régissent la saine gestion du risque opérationnel ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "d515"}
-{"id": "q034", "question": "Quelles informations sur l'ICAAP et l'ILAAP les établissements doivent-ils transmettre à leur superviseur ?", "chunks_pertinents": null, "type": "multi_passages", "indice": "EBA GL 2016/10"}
-{"id": "q035", "question": "Que prévoit l'article 400 (2) du CRR en matière d'exemptions ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "notice ACPR §3.5.2 p.80"}
-{"id": "q036", "question": "Que permet l'article 3 de l'arrêté du 23 décembre 2013 concernant les fonds mutuels de garantie ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "notice ACPR p.31"}
-{"id": "q037", "question": "Quelles conditions d'éligibilité les articles 28 et 29 du CRR posent-ils ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "notice ACPR p.31"}
-{"id": "q038", "question": "Quelle exemption s'applique à l'épargne réglementée transférée à une entité du secteur public ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "notice ACPR §4.2.1.2 p.83"}
-{"id": "q039", "question": "Que dit le paragraphe 50 du document de finalisation de Bâle III sur les expositions en actions ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "d424 §50 p.21"}
-{"id": "q040", "question": "Que prévoit l'annexe 3 du dispositif de Bâle II en matière de transactions non dénouées ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "d424 §87 p.31"}
-{"id": "q041", "question": "Quelles sont les modalités de calcul des ratios prudentiels dans le cadre de la CRD IV ?", "chunks_pertinents": null, "type": "reference_explicite", "indice": "notice ACPR — question large sur le document lui-même"}
+{"id": "q001", "question": "Quel est le ratio minimal de fonds propres de base de catégorie 1 (CET1) exigé ?", "chunks_pertinents": [34, 491], "type": "factuelle", "indice": "bcbs189 p.20, notice ACPR p.20 — 4,5 %"}
+{"id": "q002", "question": "Quel est le ratio minimal de fonds propres de catégorie 1 (Tier 1) ?", "chunks_pertinents": [34, 491], "type": "factuelle", "indice": "bcbs189 p.20, notice ACPR p.20 — 6 %"}
+{"id": "q003", "question": "Quel est le ratio minimal de fonds propres totaux exigé des banques ?", "chunks_pertinents": [34, 491], "type": "factuelle", "indice": "bcbs189 p.20 — 8 %"}
+{"id": "q004", "question": "Quel est le ratio de levier minimal exigé ?", "chunks_pertinents": [498], "type": "factuelle", "indice": "bcbs270 p.5, d365 p.18 — 3 %"}
+{"id": "q005", "question": "Quel était le niveau minimal du LCR au moment de son entrée en vigueur ?", "chunks_pertinents": [671], "type": "factuelle", "indice": "bcbs238 p.8 — 60 %"}
+{"id": "q006", "question": "Quelle valeur minimale le ratio de financement stable net (NSFR) doit-il atteindre ?", "chunks_pertinents": [831], "type": "factuelle", "indice": "d295 p.6 — 100 %"}
+{"id": "q007", "question": "Quel est le niveau du coussin de conservation des fonds propres ?", "chunks_pertinents": [1341], "type": "factuelle", "indice": "notice ACPR p.23 — 2,5 %"}
+{"id": "q008", "question": "À quel seuil de ratio CET1 la conversion des instruments de fonds propres additionnels de catégorie 1 doit-elle au minimum être déclenchée ?", "chunks_pertinents": [1336], "type": "factuelle", "indice": "notice ACPR p.22 — 5,125 %"}
+{"id": "q009", "question": "Quelle exigence de CET1 obtient-on en ajoutant le coussin de conservation au minimum réglementaire ?", "chunks_pertinents": [48], "type": "factuelle", "indice": "bcbs189 p.28 — 7 %"}
+{"id": "q010", "question": "Quelle décote minimale s'applique aux actifs liquides de niveau 2A ?", "chunks_pertinents": [696], "type": "factuelle", "indice": "bcbs238 p.23-24"}
+{"id": "q011", "question": "Quel plafond la part des actifs de niveau 2 ne doit-elle pas dépasser dans l'encours total d'actifs liquides de haute qualité ?", "chunks_pertinents": [692, 695], "type": "factuelle", "indice": "bcbs238"}
+{"id": "q012", "question": "Quel pourcentage de risque pondéré s'applique aux expositions sur actions non cotées de nature spéculative ?", "chunks_pertinents": [190], "type": "factuelle", "indice": "d424 p.21 — 400 %"}
+{"id": "q013", "question": "Sur quelle période de tensions le LCR doit-il permettre à une banque de survivre ?", "chunks_pertinents": [667], "type": "factuelle", "indice": "bcbs238 — 30 jours calendaires"}
+{"id": "q014", "question": "Sur quel horizon temporel le ratio de financement stable net est-il calculé ?", "chunks_pertinents": [831], "type": "factuelle", "indice": "d295 — un an"}
+{"id": "q015", "question": "Quel taux de pondération s'applique aux expositions garanties par une hypothèque sur un bien immobilier résidentiel dans l'approche standard révisée ?", "chunks_pertinents": [200], "type": "factuelle", "indice": "d424"}
+{"id": "q016", "question": "Qu'est-ce que le ratio de financement stable net (NSFR) ?", "chunks_pertinents": [831], "type": "definition", "indice": "d295 §1"}
+{"id": "q017", "question": "Qu'est-ce que le ratio de liquidité à court terme (LCR) ?", "chunks_pertinents": [667], "type": "definition", "indice": "bcbs238"}
+{"id": "q018", "question": "Comment se définit un actif liquide de haute qualité (HQLA) ?", "chunks_pertinents": [667], "type": "definition", "indice": "bcbs238"}
+{"id": "q019", "question": "Comment le ratio de levier est-il défini et calculé ?", "chunks_pertinents": [497, 860], "type": "definition", "indice": "bcbs270, d424 §5"}
+{"id": "q020", "question": "Que recouvrent les fonds propres de base de catégorie 1 ?", "chunks_pertinents": [35], "type": "definition", "indice": "bcbs189"}
+{"id": "q021", "question": "Quels critères définissent un établissement de petite taille et non complexe ?", "chunks_pertinents": [1304], "type": "definition", "indice": "notice ACPR §1.2.1.8 p.11"}
+{"id": "q022", "question": "Qu'est-ce que le processus interne d'évaluation de l'adéquation du capital (ICAAP) ?", "chunks_pertinents": [1192], "type": "definition", "indice": "EBA GL 2016/10"}
+{"id": "q023", "question": "Qu'est-ce que le processus interne d'évaluation de l'adéquation de la liquidité (ILAAP) ?", "chunks_pertinents": [1192], "type": "definition", "indice": "EBA GL 2016/10"}
+{"id": "q024", "question": "Comment le risque opérationnel est-il défini ?", "chunks_pertinents": [987], "type": "definition", "indice": "d515"}
+{"id": "q025", "question": "Qu'entend-on par financement d'immobilier commercial à forte volatilité (HVCRE) ?", "chunks_pertinents": [282], "type": "definition", "indice": "d424 §17 p.59-60"}
+{"id": "q026", "question": "Qu'est-ce que le facteur de financement stable disponible (ASF) ?", "chunks_pertinents": [831], "type": "definition", "indice": "d295"}
+{"id": "q027", "question": "Quelles sont les composantes des fonds propres réglementaires et comment s'articulent-elles ?", "chunks_pertinents": [35, 1336], "type": "multi_passages", "indice": "bcbs189 — CET1, AT1, Tier 2"}
+{"id": "q028", "question": "Quelles catégories d'actifs liquides de haute qualité existent et quelles décotes leur sont appliquées ?", "chunks_pertinents": [691, 696], "type": "multi_passages", "indice": "bcbs238 — niveau 1, 2A, 2B"}
+{"id": "q029", "question": "Quelles informations les banques doivent-elles publier au titre du pilier 3 ?", "chunks_pertinents": [559, 572], "type": "multi_passages", "indice": "d400"}
+{"id": "q030", "question": "Quels éléments doivent être déduits des fonds propres de base de catégorie 1 ?", "chunks_pertinents": [1345], "type": "multi_passages", "indice": "bcbs189, notice ACPR §2.2"}
+{"id": "q031", "question": "Quels critères l'EBA retient-elle pour l'octroi et le suivi des prêts ?", "chunks_pertinents": [1097], "type": "multi_passages", "indice": "EBA GL 2020/06"}
+{"id": "q032", "question": "Quelles expositions entrent dans la mesure de l'exposition totale du ratio de levier ?", "chunks_pertinents": [862], "type": "multi_passages", "indice": "bcbs270, d365"}
+{"id": "q033", "question": "Quels principes régissent la saine gestion du risque opérationnel ?", "chunks_pertinents": [995], "type": "multi_passages", "indice": "d515"}
+{"id": "q034", "question": "Quelles informations sur l'ICAAP et l'ILAAP les établissements doivent-ils transmettre à leur superviseur ?", "chunks_pertinents": [1189, 1195], "type": "multi_passages", "indice": "EBA GL 2016/10"}
+{"id": "q035", "question": "Que prévoit l'article 400 (2) du CRR en matière d'exemptions ?", "chunks_pertinents": [1502], "type": "reference_explicite", "indice": "notice ACPR §3.5.2 p.80"}
+{"id": "q036", "question": "Que permet l'article 3 de l'arrêté du 23 décembre 2013 concernant les fonds mutuels de garantie ?", "chunks_pertinents": [1360], "type": "reference_explicite", "indice": "notice ACPR p.31"}
+{"id": "q037", "question": "Quelles conditions d'éligibilité les articles 28 et 29 du CRR posent-ils ?", "chunks_pertinents": [1360], "type": "reference_explicite", "indice": "notice ACPR p.31"}
+{"id": "q038", "question": "Quelle exemption s'applique à l'épargne réglementée transférée à une entité du secteur public ?", "chunks_pertinents": [1512], "type": "reference_explicite", "indice": "notice ACPR §4.2.1.2 p.83"}
+{"id": "q039", "question": "Que dit le paragraphe 50 du document de finalisation de Bâle III sur les expositions en actions ?", "chunks_pertinents": [190], "type": "reference_explicite", "indice": "d424 §50 p.21"}
+{"id": "q040", "question": "Que prévoit l'annexe 3 du dispositif de Bâle II en matière de transactions non dénouées ?", "chunks_pertinents": [215], "type": "reference_explicite", "indice": "d424 §87 p.31"}
+{"id": "q041", "question": "Quelles sont les modalités de calcul des ratios prudentiels dans le cadre de la CRD IV ?", "chunks_pertinents": [1283], "type": "reference_explicite", "indice": "notice ACPR — question large sur le document lui-même"}
 {"id": "q042", "question": "Quel est le taux directeur de la Banque centrale européenne aujourd'hui ?", "chunks_pertinents": [], "type": "hors_corpus"}
 {"id": "q043", "question": "Quelles sont les exigences de solvabilité applicables aux entreprises d'assurance sous Solvabilité II ?", "chunks_pertinents": [], "type": "hors_corpus"}
 {"id": "q044", "question": "Quelles obligations le RGPD impose-t-il en matière de traitement des données personnelles ?", "chunks_pertinents": [], "type": "hors_corpus"}

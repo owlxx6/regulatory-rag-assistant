@@ -134,9 +134,11 @@ def main() -> int:
     rapports = []
 
     with psycopg.connect(parametres.dsn) as connexion:
-        # Amorçage : le premier appel charge les modèles ; on ne veut pas ce coût dans
-        # les latences mesurées.
-        rechercher(connexion, "amorçage des modèles", "hybride_rerank")
+        # Amorçage : le premier appel charge les modèles, et ce coût ne doit pas entrer dans
+        # les latences mesurées. On n'amorce que les configurations demandées — charger le
+        # cross-encoder pèse plus d'une minute, inutile pour une évaluation purement lexicale.
+        for configuration in configurations:
+            rechercher(connexion, "amorçage des modèles", configuration)
 
         for configuration in configurations:
             print(f"\n=== {configuration} ===")
