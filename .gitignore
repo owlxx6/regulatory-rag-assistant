@@ -25,3 +25,10 @@ models/
 # Résultats d'évaluation : les JSON sont versionnés (ce sont les preuves chiffrées),
 # pas les artefacts intermédiaires.
 evaluation/resultats/*.tmp
+
+# Fichiers de suivi personnels : journal de bord de session, utiles au travail mais
+# hors de propos sur un dépôt destiné à être lu par un tiers. La méthode est exposée
+# dans docs/decisions.md et docs/sprints.md, écrits pour être lus.
+task_plan.md
+progress.md
+findings.md
