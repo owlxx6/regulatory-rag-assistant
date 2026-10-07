@@ -42,8 +42,8 @@ figure dans le top k.
 | Lexical seul | 0,098 | 0,146 | 0,195 | 0,317 | 0,146 | 17 ms |
 | Hybride (RRF) | 0,195 | 0,317 | 0,366 | 0,537 | 0,289 | 221 ms |
 | Vectoriel seul | 0,268 | 0,415 | 0,512 | 0,537 | 0,361 | 184 ms |
-| **Hybride + reranking léger** | **0,366** | **0,561** | **0,610** | 0,610 | **0,454** | 9 317 ms |
-| Hybride + reranking (bge) | *en cours* | | | | | 139 533 ms |
+| Hybride + reranking bge (568 M) | 0,342 | 0,512 | 0,561 | 0,610 | 0,428 | 60 040 ms |
+| **Hybride + reranking léger (118 M)** | **0,366** | **0,561** | **0,610** | 0,610 | **0,454** | **9 317 ms** |
 
 **Le seuil de 0,80 au recall@5 n'est pas atteint.** Le meilleur résultat est 0,610. Les trois
 constats qui expliquent cet écart valent davantage que le chiffre lui-même.
@@ -85,10 +85,31 @@ Contre-intuitif : les questions à réponse chiffrée précise devraient être l
 sont les plus dures parce que les seuils chiffrés du corpus sont énoncés dans les textes du
 Comité de Bâle, en anglais. Le point 2 se propage directement ici.
 
+#### 4. Le petit reranker bat le gros, 6,4 fois plus vite
+
+`bge-reranker-v2-m3` est prescrit par le cahier des charges. Mesuré, il est dominé par
+`mmarco-mMiniLMv2-L12`, cinq fois plus petit : 0,561 contre 0,610 de recall@5, pour 60 s contre
+9,3 s de latence médiane.
+
+L'écart de qualité ne doit pas être surinterprété — 0,610 contre 0,561, ce sont 25 questions
+contre 23 sur 41, soit deux questions pour une granularité de 2,44 points. **Les deux modèles
+sont indiscernables en qualité à cette taille d'échantillon.** L'écart de latence, lui, est d'un
+facteur 6,4 et ne souffre aucune ambiguïté.
+
+**Décision : le modèle léger est retenu**, et la comparaison est conservée au dépôt. Un
+cross-encoder plus gros n'est pas automatiquement meilleur, en particulier sur des paires
+interlingues — question française, passage anglais — où le modèle entraîné sur mMARCO semble
+mieux transférer.
+
 #### Ce que le reranking apporte
 
 +9,8 points de recall@5 sur le vectoriel seul (0,512 → 0,610), +24,4 points sur l'hybride.
-L'objectif était un gain d'au moins 10 points : il est manqué de deux dixièmes de point.
+
+L'objectif était un gain d'au moins 10 points, et il est manqué de deux dixièmes. Cet écart
+n'a pourtant aucune signification : le gain vaut 4 questions sur 41, soit 9,76 points, et les
+valeurs voisines atteignables sont 7,32 points (3 questions) et 12,20 points (5 questions).
+**Le seuil de +10 points n'est pas atteignable sur un jeu de 41 questions** — il tombe entre
+deux valeurs possibles. Un seuil au point près exigerait environ 200 questions annotées.
 
 Reproduire ces mesures :
 
@@ -96,6 +117,30 @@ Reproduire ces mesures :
 python evaluation/evaluer.py                  # les cinq configurations
 python evaluation/analyser.py                 # ventilation par type et par langue
 ```
+
+---
+
+### Génération : abstention et traçabilité
+
+Mesuré via Groq (`openai/gpt-oss-120b`), recherche en configuration hybride + reranking léger.
+
+| Critère | Mesuré | Seuil | |
+|---|---|---|---|
+| Abstention correcte sur questions hors-corpus | **0,93** (14/15) | ≥ 0,90 | ✅ |
+| Citation valide sur les réponses produites | ≥ 0,81 | 1,00 | à remesurer |
+
+L'abstention est atteinte : sur quatorze questions dont la réponse n'existe pas dans le corpus,
+le système a refusé de répondre au lieu d'extrapoler.
+
+Le taux de citation de 0,81 est un **plancher**, obtenu avec un détecteur défaillant : les
+modèles de la famille gpt-oss citent avec des crochets pleine largeur `【1】`, que le contrôle
+programmatique ne reconnaissait pas. Des réponses correctement sourcées étaient comptées comme
+non sourcées. Le détecteur est corrigé et testé ; la valeur exacte attend un nouveau run.
+
+**Le fournisseur est interchangeable.** La même chaîne tourne derrière l'API Anthropic, derrière
+toute API compatible OpenAI (Groq, Mistral, OpenRouter), ou entièrement en local via Ollama —
+auquel cas aucune donnée ne quitte la machine, ce qui est la contrainte réelle d'un établissement
+soumis au secret bancaire. Le choix se fait dans `.env`, jamais dans le code.
 
 ---
 
