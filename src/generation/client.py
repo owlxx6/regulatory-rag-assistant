@@ -26,7 +26,11 @@ from src.generation.prompts import PassageSource, construire_messages
 MAX_TOKENS = 2048
 
 # Réessais sur limitation de débit : les paliers gratuits plafonnent les tokens par minute.
-MAX_TENTATIVES = 6
+MAX_TENTATIVES = 10
+
+# Plafond d'attente entre deux réessais. La limite de débit étant par minute, attendre
+# plus longtemps ne sert qu'à perdre du temps sur un compteur mal interprété.
+ATTENTE_MAX = 90.0
 
 
 class LLMClient(ABC):
@@ -115,31 +119,51 @@ class ClientCompatibleOpenAI(LLMClient):
             raise ValueError("LLM_BASE_URL est requis pour le fournisseur « openai »")
 
     @staticmethod
-    def _attente_apres_429(reponse: httpx.Response, tentative: int) -> float:
-        """Durée d'attente avant réessai, lue dans les en-têtes du fournisseur.
+    def _duree(brut: str | None) -> float | None:
+        """Convertit une durée d'en-tête en secondes : « 500ms », « 43.3s », « 7m12s », « 3 »."""
+        if not brut:
+            return None
+        texte = brut.strip().lower()
+        try:
+            if texte.endswith("ms"):
+                return float(texte[:-2]) / 1000
+            if "m" in texte and texte.endswith("s"):  # forme « 7m12s »
+                minutes, reste = texte.split("m", 1)
+                return float(minutes) * 60 + float(reste.rstrip("s") or 0)
+            if texte.endswith("s"):
+                return float(texte[:-1])
+            return float(texte)
+        except ValueError:
+            return None
 
-        Les paliers gratuits limitent le débit en tokens par minute et annoncent la date de
-        réinitialisation. Respecter cette indication évite une rafale de 429 : attendre la
-        bonne durée une fois coûte moins que réessayer dix fois trop tôt. Le repli
-        exponentiel ne sert que si aucun en-tête n'est fourni.
+    @classmethod
+    def _attente_apres_429(cls, reponse: httpx.Response, tentative: int) -> float:
+        """Durée d'attente avant réessai, bornée.
+
+        Deux pièges, tous deux rencontrés en production.
+
+        Le premier est de lire le mauvais compteur. `x-ratelimit-reset-requests` décompte la
+        fenêtre horaire des requêtes et peut annoncer dix minutes, alors que la contrainte
+        effective est le débit en tokens par minute, qui se recharge en continu — on attendait
+        le remplissage du mauvais seau. On retient donc la plus courte des durées annoncées.
+
+        Le second est de ne pas borner. La limite étant par minute, aucune attente utile ne
+        dépasse une minute et demie : un plafond transforme une pause de quinze minutes en
+        quelques réessais courts. Le repli exponentiel ne sert que si aucun en-tête n'est
+        exploitable.
         """
-        for entete in ("retry-after", "x-ratelimit-reset-tokens", "x-ratelimit-reset-requests"):
-            brut = reponse.headers.get(entete)
-            if not brut:
-                continue
-            texte = brut.strip().lower()
-            try:
-                if texte.endswith("ms"):
-                    return float(texte[:-2]) / 1000
-                if texte.endswith("s") and "m" not in texte:
-                    return float(texte[:-1])
-                if "m" in texte and "s" in texte:  # forme « 7m12s »
-                    minutes, reste = texte.split("m", 1)
-                    return float(minutes) * 60 + float(reste.rstrip("s") or 0)
-                return float(texte)
-            except ValueError:
-                continue
-        return min(2**tentative, 60)
+        durees = [
+            d
+            for d in (
+                cls._duree(reponse.headers.get("retry-after")),
+                cls._duree(reponse.headers.get("x-ratelimit-reset-tokens")),
+            )
+            if d is not None and d > 0
+        ]
+        attente = min(durees) if durees else min(2**tentative, ATTENTE_MAX)
+        # Une seconde de marge : revenir exactement à l'instant du rechargement rate un 429
+        # de plus par arrondi.
+        return min(attente + 1, ATTENTE_MAX)
 
     def generer(self, question: str, passages: list[PassageSource]) -> Iterator[str]:
         systeme, utilisateur = construire_messages(question, passages)
