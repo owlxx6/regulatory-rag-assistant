@@ -5,7 +5,11 @@ name: rag-reglementaire
 services:
   db:
     image: pgvector/pgvector:pg16
-    container_name: rag_postgres
+    # Nom paramétrable : figé, il empêche toute seconde instance — y compris chez qui
+    # possède déjà un conteneur de ce nom, ou pour tester le démarrage depuis un clone
+    # sans arrêter l'instance de travail. Le défaut reste rag_postgres, de sorte que les
+    # commandes `docker exec rag_postgres psql …` du README fonctionnent sans réglage.
+    container_name: ${POSTGRES_CONTAINER:-rag_postgres}
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-rag}
