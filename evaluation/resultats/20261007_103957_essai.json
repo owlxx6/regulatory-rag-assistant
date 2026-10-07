@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-07T10:39:57",
+  "configuration_recherche": "hybride",
+  "fournisseur": "openai",
+  "modele": "openai/gpt-oss-120b",
+  "taux_abstention_correcte": 1.0,
+  "taux_citation_valide": 1.0,
+  "nb_hors_corpus": 3,
+  "nb_dans_corpus": 3,
+  "latence_mediane_ms": 11845.8,
+  "details": [
+    {
+      "id": "q042",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 1135.6,
+      "reponse": "– Les extraits fournis ne contiennent aucune indication du taux directeur actuel de la Banque centrale européenne."
+    },
+    {
+      "id": "q043",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 958.6,
+      "reponse": ": les passages fournis traitent du CRR, des exigences de fonds propres, du MREL et du ratio de levier pour les établissements de crédit, mais ils ne contiennent aucune information sur les exigences de solvabilité applicables aux entreprises d’assurance dans le cadre du régime Solvabilité II."
+    },
+    {
+      "id": "q044",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 963.2,
+      "reponse": "– Les passages fournis portent sur les exigences prudentielles liées aux LGD, PD, MREL, les processus de demande d’IPU et les exigences des dérivés de crédit dans le cadre de Bâle III. Aucun de ces extraits ne contient d’information sur les obligations imposées par le RGPD en matière de traitement des données personnelles."
+    },
+    {
+      "id": "q001",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22556.1,
+      "reponse": "Le ratio minimum de fonds propres de base de catégorie 1 (CET 1) est fixé à **4,5 %** des actifs pondérés en fonction du risque [1]."
+    },
+    {
+      "id": "q002",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 23199.8,
+      "reponse": "Le ratio minimal exigé pour les fonds propres de catégorie 1 (Tier 1) est de 6 % [1]."
+    },
+    {
+      "id": "q003",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24598.6,
+      "reponse": "Le ratio minimal de fonds propres totaux que les établissements doivent détenir s’élève à 8 % des expositions pondérées pour les risques (couvrant le risque de crédit, de contrepartie, de dilution, le risque d’ajustement de l’évaluation de crédit, le risque de règlement, les risques de marché et le risque opérationnel) [1]."
+    }
+  ]
+}
