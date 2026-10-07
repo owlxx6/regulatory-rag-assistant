@@ -58,6 +58,43 @@ Décision : ne pas complexifier avant d'avoir mesuré.
 
 ---
 
+## 2026-10-07 — Arbitrage du reranking : le modèle léger est retenu
+
+**Mesure.** Les deux cross-encoders, même jeu de 41 questions, même chaîne en amont :
+
+| Modèle | Paramètres | recall@5 | MRR | latence p50 |
+|---|---|---|---|---|
+| `mmarco-mMiniLMv2-L12-H384` | 118 M | **0,610** | **0,454** | **9 317 ms** |
+| `bge-reranker-v2-m3` | 568 M | 0,561 | 0,428 | 60 040 ms |
+
+**Décision : le modèle léger.** Il est retenu comme configuration par défaut, et la comparaison
+reste au dépôt.
+
+**Ce que la mesure permet d'affirmer, et ce qu'elle ne permet pas.** L'écart de latence est d'un
+facteur 6,4 et ne souffre aucune ambiguïté. L'écart de qualité, lui, vaut 25 questions contre 23
+sur 41 : deux questions, pour une granularité de 2,44 points par question. **Les deux modèles
+sont indiscernables en qualité à cette taille d'échantillon**, et prétendre que le léger est
+« meilleur » serait surinterpréter du bruit. Ce qu'on peut dire : il n'est pas moins bon, et il
+coûte six fois moins.
+
+**Hypothèse sur le contre-résultat, non vérifiée.** Un cross-encoder plus gros devrait dominer.
+L'explication plausible tient aux paires interlingues — question française, passage anglais :
+`mmarco-mMiniLMv2` est entraîné sur mMARCO, qui contient explicitement des paires de ce type,
+tandis que bge-v2-m3 est optimisé pour le rappel multilingue monolingue. La vérifier demanderait
+de ventiler le gain par langue, ce qui n'est pas fait.
+
+**Correction d'une mesure antérieure.** La latence de bge relevée en août était de 139 s ; le run
+dédié donne 60 s. L'écart vient des conditions de mesure — la première série enchaînait les cinq
+configurations, avec contention thermique probable. C'est la valeur de 60 s qui est retenue, issue
+d'un run isolé.
+
+**Conséquence sur le budget de latence.** Aucune des deux configurations ne tient les 2 secondes.
+La configuration hybride sans reranking les tient avec deux ordres de grandeur de marge, à 221 ms,
+pour 0,366 de recall@5 — c'est l'arbitrage qui reste ouvert pour un déploiement réel : 25 questions
+correctement servies en 9,3 s, ou 15 en 0,2 s.
+
+---
+
 ## 2026-10-07 — Fournisseur de génération : API compatible OpenAI plutôt qu'Ollama
 
 **Choix.** `ClientCompatibleOpenAI`, pointé sur Groq avec `openai/gpt-oss-120b`. Une seule
