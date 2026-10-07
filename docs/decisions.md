@@ -58,6 +58,74 @@ Décision : ne pas complexifier avant d'avoir mesuré.
 
 ---
 
+## 2026-10-07 — Fournisseur de génération : API compatible OpenAI plutôt qu'Ollama
+
+**Choix.** `ClientCompatibleOpenAI`, pointé sur Groq avec `openai/gpt-oss-120b`. Une seule
+implémentation couvre Groq, Mistral, OpenRouter et Together : ils partagent le contrat HTTP
+d'OpenAI et ne diffèrent que par l'URL de base et le nom du modèle.
+
+**Pourquoi pas Ollama, pourtant installé.** Un modèle de 7 milliards de paramètres sur ce CPU
+Intel demande environ une heure pour les 56 questions, avec un suivi d'instruction nettement
+plus faible qu'un modèle de 120 milliards servi par API. Or le critère le plus exigeant du
+projet est l'abstention, qui est précisément du suivi d'instruction strict. Mesurer avec un
+modèle faible aurait mélangé deux causes d'échec : le prompt et la capacité du modèle.
+
+**Ce qu'Ollama reste.** L'implémentation et le serveur local sont en place. L'argument
+« la chaîne tourne sans qu'aucune donnée ne quitte la machine » est vérifiable, et c'est
+l'intérêt de l'interface `LLMClient` : le fournisseur se change dans `.env`, jamais dans le code.
+
+**Limite de débit.** Le palier gratuit plafonne à 8 000 tokens par minute, soit environ quatre
+questions — une question consomme près de 2 000 tokens avec ses cinq passages. Le client lit la
+durée d'attente dans les en-têtes du fournisseur (`retry-after`,
+`x-ratelimit-reset-tokens`, y compris la forme « 7m12s ») plutôt que de deviner : attendre la
+bonne durée une fois coûte moins que dix réessais trop tôt.
+
+---
+
+## 2026-10-07 — Le taux de citation mesuré à 0,81 était un défaut de mesure
+
+**Symptôme.** Sept réponses comptées « sans citation », alors qu'elles citaient correctement.
+
+**Cause.** Les modèles de la famille gpt-oss émettent des crochets pleine largeur — 【1】
+(U+3010/U+3011) — et non les crochets ASCII attendus par le détecteur. Les réponses étaient
+sourcées ; le code ne savait pas les lire.
+
+**Correction.** Le motif accepte les deux formes, et trois tests couvrent le cas, dont les
+crochets mixtes dans une même réponse et un numéro pleine largeur hors plage.
+
+**Ce que la mesure vaut en attendant un nouveau run.** 0,81 est un **plancher** : il a été
+obtenu avec un détecteur qui ratait une forme de citation valide. Le recalcul sur les réponses
+déjà stockées est impossible, parce qu'elles étaient tronquées à 400 caractères dans le JSON —
+défaut corrigé lui aussi, les réponses sont désormais conservées intégralement pour qu'un
+détecteur amélioré puisse être rejoué sans redépenser d'appels API.
+
+**Leçon.** Un contrôle programmatique est du code, donc faillible comme le reste. « Vérifier que
+le modèle cite » suppose de savoir reconnaître une citation, et cette hypothèse méritait un test.
+
+---
+
+## 2026-10-07 — q044 reste classée hors-corpus malgré la réponse du modèle
+
+**Fait.** Sur les 15 questions hors-corpus, 14 ont donné lieu à une abstention. La quinzième,
+q044 (« Quelles obligations le RGPD impose-t-il ? »), a reçu une réponse.
+
+**Vérification.** Le corpus mentionne effectivement le règlement 2016/679 : quatre chunks des
+orientations EBA sur l'octroi de crédit demandent aux établissements de respecter le RGPD
+lorsqu'ils collectent des données d'emprunteur auprès de tiers. Le modèle n'a donc pas inventé —
+il a répondu depuis un passage réellement pertinent.
+
+**Décision : ne pas reclasser.** Les passages disent « respectez le RGPD », ils n'énoncent pas ce
+que le RGPD impose. La question porte sur les obligations ; le corpus n'y répond pas, il y
+renvoie. Reclasser l'étiquette après avoir constaté le résultat reviendrait à ajuster le test au
+score, et le seuil de 0,90 est de toute façon atteint sans cela.
+
+**Ce que le cas enseigne sur la construction du jeu.** Écrire une question hors-corpus demande de
+vérifier que le corpus n'effleure pas le sujet, et non seulement qu'il ne le traite pas. Un
+corpus réglementaire renvoie constamment à d'autres textes : ces renvois créent des zones grises
+où l'abstention et la réponse sont toutes deux défendables.
+
+---
+
 ## 2026-10-06 — La recherche lexicale était inopérante : OU au lieu de ET
 
 **Symptôme.** Première évaluation du volet lexical : recall de 0,00 à tous les k, et

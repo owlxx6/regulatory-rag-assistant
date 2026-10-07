@@ -94,7 +94,10 @@ def traiter(connexion, client, question: dict, configuration: str) -> dict:
         "citations_invalides": controle.numeros_invalides,
         "suspecte": controle.suspecte,
         "latence_ms": round((time.perf_counter() - depart) * 1000, 1),
-        "reponse": nettoyer_abstention(reponse)[:400],
+        # Réponse conservée intégralement : tronquer empêche de recalculer les métriques
+        # sur un run passé. Un détecteur de citations corrigé après coup doit pouvoir être
+        # rejoué sur les réponses déjà obtenues, sans redépenser d'appels API.
+        "reponse": nettoyer_abstention(reponse),
     }
 
 
