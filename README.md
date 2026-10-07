@@ -122,20 +122,38 @@ python evaluation/analyser.py                 # ventilation par type et par lang
 
 ### Génération : abstention et traçabilité
 
-Mesuré via Groq (`openai/gpt-oss-120b`), recherche en configuration hybride + reranking léger.
+Mesuré via Groq, recherche en configuration hybride + reranking léger, 56 questions.
 
-| Critère | Mesuré | Seuil | |
+| Modèle | Abstention hors-corpus | Au moins une citation vérifiable | Aucune citation inventée |
 |---|---|---|---|
-| Abstention correcte sur questions hors-corpus | **0,93** (14/15) | ≥ 0,90 | ✅ |
-| Citation valide sur les réponses produites | ≥ 0,81 | 1,00 | à remesurer |
+| **`qwen/qwen3.8-27b`** | **1,00** (15/15) | **1,00** (35/35) | 0,97 (34/35) |
+| `openai/gpt-oss-120b` | 0,93 (14/15) | ≥ 0,81 — non remesuré | — |
 
-L'abstention est atteinte : sur quatorze questions dont la réponse n'existe pas dans le corpus,
-le système a refusé de répondre au lieu d'extrapoler.
+**Les deux critères de génération du cahier des charges sont atteints** : abstention ≥ 0,90,
+et 100 % des réponses comportant au moins une citation vérifiable.
 
-Le taux de citation de 0,81 est un **plancher**, obtenu avec un détecteur défaillant : les
-modèles de la famille gpt-oss citent avec des crochets pleine largeur `【1】`, que le contrôle
-programmatique ne reconnaissait pas. Des réponses correctement sourcées étaient comptées comme
-non sourcées. Le détecteur est corrigé et testé ; la valeur exacte attend un nouveau run.
+**Une référence inventée, détectée.** Sur q009, le modèle cite `[2, 4, 5, 11]` alors que seuls
+cinq passages lui ont été fournis. Les citations 2, 4 et 5 sont réelles — la réponse satisfait
+donc le critère du cahier — mais `[11]` n'existe pas. Le contrôle programmatique l'a signalée.
+C'est le rôle qui lui était assigné : les hallucinations ne sont pas supprimées, elles sont
+rendues détectables. D'où la colonne plus stricte, qui mesure ce que le critère du cahier laisse
+passer.
+
+**Deux modèles, une zone grise tranchée différemment.** q044 interroge les obligations du RGPD.
+Le corpus mentionne ce règlement — les orientations EBA demandent de le respecter lors de la
+collecte de données d'emprunteur — sans énoncer ce qu'il impose. `gpt-oss-120b` répond depuis
+ces passages, `qwen3.8-27b` s'abstient. Mêmes passages, même prompt : c'est le modèle qui arbitre.
+Qwen est aussi plus prudent sur les questions dans-corpus, avec 6 abstentions sur 41 contre 4.
+
+**Transparence sur la mesure Qwen.** Le run a été interrompu par une coupure réseau à la
+question 44, avant que l'écriture incrémentale n'existe. Les 44 premiers verdicts ont été
+reconstruits depuis le journal d'exécution — produits par le même détecteur, mais sans le texte
+des réponses ni les latences — puis les 12 questions restantes ont été évaluées par reprise.
+Les deux fichiers sont versionnés dans `evaluation/resultats/`.
+
+La mesure `gpt-oss-120b` n'a pas été rejouée : son taux de citation, obtenu avec un détecteur
+qui ne reconnaissait pas les crochets pleine largeur `【1】`, reste un plancher, et le quota
+journalier du modèle était épuisé.
 
 **Le fournisseur est interchangeable.** La même chaîne tourne derrière l'API Anthropic, derrière
 toute API compatible OpenAI (Groq, Mistral, OpenRouter), ou entièrement en local via Ollama —

@@ -177,38 +177,57 @@ class ClientCompatibleOpenAI(LLMClient):
             ],
         }
 
+        deja_emis = False
         for tentative in range(MAX_TENTATIVES):
-            with httpx.stream(
-                "POST",
-                f"{self.base_url}/chat/completions",
-                headers={"Authorization": f"Bearer {self.cle_api}"},
-                json=corps,
-                timeout=120.0,
-            ) as reponse:
-                if reponse.status_code == 429 and tentative < MAX_TENTATIVES - 1:
-                    reponse.read()  # libère la connexion avant d'attendre
-                    attente = self._attente_apres_429(reponse, tentative)
-                    print(f"    débit limité, attente de {attente:.0f} s", flush=True)
-                    time.sleep(attente)
-                    continue
+            try:
+                with httpx.stream(
+                    "POST",
+                    f"{self.base_url}/chat/completions",
+                    headers={"Authorization": f"Bearer {self.cle_api}"},
+                    json=corps,
+                    timeout=120.0,
+                ) as reponse:
+                    if reponse.status_code == 429 and tentative < MAX_TENTATIVES - 1:
+                        reponse.read()  # libère la connexion avant d'attendre
+                        attente = self._attente_apres_429(reponse, tentative)
+                        print(f"    débit limité, attente de {attente:.0f} s", flush=True)
+                        time.sleep(attente)
+                        continue
 
-                reponse.raise_for_status()
-                for ligne in reponse.iter_lines():
-                    # Flux SSE : « data: {json} », et « data: [DONE] » pour clore.
-                    if not ligne.startswith("data:"):
-                        continue
-                    charge = ligne[5:].strip()
-                    if charge == "[DONE]":
-                        break
-                    try:
-                        fragment = json.loads(charge)
-                    except json.JSONDecodeError:
-                        continue
-                    choix = fragment.get("choices") or [{}]
-                    contenu = choix[0].get("delta", {}).get("content")
-                    if contenu:
-                        yield contenu
-                return
+                    reponse.raise_for_status()
+                    for ligne in reponse.iter_lines():
+                        # Flux SSE : « data: {json} », et « data: [DONE] » pour clore.
+                        if not ligne.startswith("data:"):
+                            continue
+                        charge = ligne[5:].strip()
+                        if charge == "[DONE]":
+                            break
+                        try:
+                            fragment = json.loads(charge)
+                        except json.JSONDecodeError:
+                            continue
+                        choix = fragment.get("choices") or [{}]
+                        contenu = choix[0].get("delta", {}).get("content")
+                        if contenu:
+                            deja_emis = True
+                            yield contenu
+                    return
+            except httpx.TransportError as erreur:
+                # Coupure réseau, échec DNS, délai dépassé : transitoires par nature. Un run de
+                # génération a été perdu sur un « nodename nor servname provided » d'une
+                # seconde, à la quarante-quatrième question sur cinquante-six.
+                #
+                # On ne réessaie que si rien n'a encore été émis : relancer la requête après
+                # des fragments déjà transmis dupliquerait le début de la réponse.
+                if deja_emis or tentative == MAX_TENTATIVES - 1:
+                    raise
+                attente = min(2 ** (tentative + 1), ATTENTE_MAX)
+                print(
+                    f"    erreur réseau ({erreur.__class__.__name__}), "
+                    f"nouvel essai dans {attente:.0f} s",
+                    flush=True,
+                )
+                time.sleep(attente)
 
 
 def construire_client(fournisseur: str | None = None) -> LLMClient:

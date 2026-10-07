@@ -1,0 +1,629 @@
+{
+  "date": "2026-10-07T14:29:13",
+  "configuration_recherche": "hybride_rerank_leger",
+  "fournisseur": "openai",
+  "modele": "qwen/qwen3.8-27b",
+  "interrompu": "coupure réseau (ConnectError) — résultats reconstruits depuis le journal",
+  "nb_questions_traitees": 44,
+  "note": "Verdicts du détecteur corrigé, relevés dans le journal d'exécution. Texte des réponses et latences perdus : le run est antérieur à l'écriture incrémentale.",
+  "details": [
+    {
+      "id": "q042",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q043",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q044",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q045",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q046",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q047",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q048",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q049",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q050",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q051",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q052",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q053",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q054",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q055",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q056",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q001",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q002",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q003",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q004",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q005",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q006",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q007",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q008",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q009",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2,
+        4,
+        5,
+        11
+      ],
+      "citations_invalides": [
+        11
+      ],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q010",
+      "type": "factuelle",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q011",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q012",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q013",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q014",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q015",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q016",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q017",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q018",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q019",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q020",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q021",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q022",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q023",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q024",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q025",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q026",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q027",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q028",
+      "type": "multi_passages",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q029",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    }
+  ]
+}
