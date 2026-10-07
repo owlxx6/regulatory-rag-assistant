@@ -58,6 +58,41 @@ Décision : ne pas complexifier avant d'avoir mesuré.
 
 ---
 
+## 2026-10-07 — Critères de génération atteints, sur Qwen
+
+**Mesure complète, 56 questions, `qwen/qwen3.8-27b`.**
+
+| Critère | Mesuré | Seuil |
+|---|---|---|
+| Abstention correcte hors-corpus | 1,00 (15/15) | ≥ 0,90 |
+| Réponses avec au moins une citation vérifiable | 1,00 (35/35) | 100 % |
+| Réponses sans aucune citation inventée | 0,97 (34/35) | — |
+
+**Pourquoi deux colonnes pour la citation.** Le cahier des charges demande que chaque réponse
+comporte *au moins une* citation vérifiable. Ce critère laisse passer une réponse qui cite à la
+fois des sources réelles et une source inventée. C'est le cas de q009 : `[2, 4, 5, 11]` sur cinq
+passages. La colonne stricte mesure ce que le critère officiel ne voit pas. Les deux sont
+publiées, plutôt que de retenir celle qui arrange.
+
+**Pourquoi Qwen et non gpt-oss-120b.** Le quota journalier de 200 000 tokens de gpt-oss-120b a
+été épuisé par deux runs complets. C'est un modèle de raisonnement : ses tokens de réflexion sont
+facturés sans apparaître dans la réponse, ce qui a fait déraper l'estimation de consommation.
+Qwen dispose de son propre quota, produit des citations ASCII et aucun bloc de raisonnement
+visible. La mesure gpt-oss-120b est conservée comme second point de comparaison.
+
+**Provenance de la mesure.** Le run a été interrompu par une coupure DNS à la question 44. Les
+verdicts des 44 premières questions ont été reconstruits depuis le journal d'exécution — même
+détecteur, même run, mais sans le texte des réponses ni les latences. Les 12 restantes ont été
+évaluées par reprise, avec un garde-fou qui refuse de mélanger deux modèles dans une même mesure.
+Le fichier reconstruit et le fichier final sont tous deux versionnés.
+
+**Quatre défauts de robustesse corrigés en chemin**, tous révélés par des runs longs : attente
+non bornée sur un compteur mal lu (932 s), absence de réessai sur erreur réseau, résultats écrits
+seulement en fin de run, et résolution des modèles via le réseau à chaque démarrage. Chacun avait
+coûté un run entier.
+
+---
+
 ## 2026-10-07 — Arbitrage du reranking : le modèle léger est retenu
 
 **Mesure.** Les deux cross-encoders, même jeu de 41 questions, même chaîne en amont :

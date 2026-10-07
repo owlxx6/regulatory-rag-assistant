@@ -1,0 +1,812 @@
+{
+  "date": "2026-10-07T14:33:49",
+  "configuration_recherche": "hybride_rerank_leger",
+  "fournisseur": "openai",
+  "modele": "qwen/qwen3.8-27b",
+  "interrompu": null,
+  "nb_questions_traitees": 56,
+  "nb_hors_corpus": 15,
+  "abstentions_correctes": 15,
+  "taux_abstention_correcte": 1.0,
+  "nb_dans_corpus": 41,
+  "nb_reponses_produites": 35,
+  "nb_citations_valides": 34,
+  "taux_citation_valide": 0.9714,
+  "abstentions_dans_corpus": 6,
+  "hors_corpus_sans_abstention": [],
+  "reponses_sans_citation": [],
+  "citations_hors_plage": [
+    "q009"
+  ],
+  "latence_mediane_ms": 20105.3,
+  "details": [
+    {
+      "id": "q042",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q043",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q044",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q045",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q046",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q047",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q048",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q049",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q050",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q051",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q052",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q053",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q054",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q055",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q056",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q001",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q002",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q003",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q004",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q005",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q006",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q007",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q008",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q009",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2,
+        4,
+        5,
+        11
+      ],
+      "citations_invalides": [
+        11
+      ],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q010",
+      "type": "factuelle",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q011",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q012",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q013",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q014",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q015",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q016",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q017",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q018",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q019",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q020",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q021",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q022",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q023",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q024",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q025",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q026",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q027",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q028",
+      "type": "multi_passages",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q029",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": null,
+      "reponse": "",
+      "reconstruit_depuis_journal": true
+    },
+    {
+      "id": "q030",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 12246.0,
+      "reponse": "Sur la base des passages fournis, les éléments devant être déduits des fonds propres de base de catégorie 1 (CET1) sont décrits dans la section 3 du chapitre 2 du titre 1 de la partie II du CRR (articles 36 à 49) [3].\n\nPlus spécifiquement, les passages mentionnent :\n\n*   Les participations dans des entités du secteur financier [3].\n*   Les actifs d’impôt différé [3].\n*   Les montants excédant la limite agrégée de 15 % pour les investissements significatifs dans des institutions financières [5].\n*   Les droits de gestion immobilière (mortgage servicing rights) [5].\n*   Les actifs d'impôt différé issus de différences temporaires [5].\n*   Les actifs logiciels, qui font l'objet d'un traitement particulier (délai d'amortissement prudentiel plus court que le comptable, avec déduction de l'amortissement complémentaire et pondération à 100 % de la valeur résiduelle) conformément à l'article 36 du CRR et au Règlement délégué 2020/2176 [3].\n\n[3] [5]"
+    },
+    {
+      "id": "q031",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 12710.8,
+      "reponse": "D'après les passages fournis, l'EBA retient les critères, processus et mécanismes suivants pour l'octroi et le suivi des prêts :\n\n**1. Gouvernance interne et cadre réglementaire**\nLes lignes directrices spécifient les arrangements de gouvernance interne, les processus et les mécanismes basés sur l'article 74(1) de la directive 2013/36/UE (CRD) et les exigences relatives aux risques de crédit et de contreportie basés sur l'article 79 de la même directive [1][5]. Elles visent à garantir des normes robustes et prudentes pour la prise, la gestion et le suivi du risque de crédit sur tout le cycle de vie des facilités de crédit, afin d'assurer que les nouveaux prêts sont de haute qualité de crédit [1][5].\n\n**2. Évaluation de la solvabilité (Creditworthiness)**\nLes lignes directrices introduisent des exigences pour l'évaluation de la solvabilité des emprunteurs et la gestion des informations et des données associées [1][5]. Pour les consommateurs, elles précisent comment appliquer les règles de protection des consommateurs, notamment en utilisant les informations prévues aux articles 18 et 20 de la directive 2014/17/UE (MCD) et à l'article 8 de la directive 2008/48/CE sur le crédit aux consommateurs (CCD) [1][5]. Le document mentionne aussi que l'évaluation peut être effectuée par divers moyens, y compris des modèles, pourvus que les exigences soient respectées, avec des considérations de gouvernance spécifiques pour ces modèles [3].\n\n**3. Principe de proportionnalité et simplification**\nL'EBA a revu significativement les lignes directrices pour souligner le principe de proportionnalité, modifiant le vocabulaire et restructurant les sections [3]. Une approche simplifiée a été mise en place pour l'évaluation de la solvabilité des micro et petites entreprises, s'appuyant sur la définition de la PME de la Commission européenne [3].\n\n**4. Annexes constituant les critères opérationnels**\nLes lignes directrices sont accompagnées de trois annexes qui présentent l'ensemble des considérations applicables :\n*   L'Annexe 1 présente les considérations relatives aux critères d'octroi de crédit ;\n*   L'Annexe 2 présente les besoins en information et en données à des fins d'évaluation de la solvabilité ;\n*   L'Annexe 3 présente les métriques qui peuvent être utilisées dans l'octroi et le suivi du crédit [4].\n\n**5. Objectifs de stabilité et de protection**\nL'objectif est d'améliorer les pratiques institutionnelles pour prévenir la détérioration des prêts performants vers une situation de non-performance (NPL) [2][4]. Les critères doivent donc refléter à la fois les objectifs prudentiels (stabilité financière) et de protection des consommateurs, car un échec dans l'évaluation précise de la solvabilité peut augmenter le niveau d'expositions non performantes [4]."
+    },
+    {
+      "id": "q032",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 11261.6,
+      "reponse": "La mesure de l'exposition totale du ratio de levier correspond à la somme des expositions au bilan et hors bilan, calculées à partir des données comptables [1]. Elle comprend spécifiquement :\n\n1.  **Les actifs au bilan** :\n    *   Y compris les **dérivés**, dont le calcul est fondé sur la méthode standard du risque de contrepartie, avec des ajustements et une prise en compte d'une exposition complémentaire pour les dérivés de crédit vendus [1].\n    *   Y compris les **opérations de pensions (securities financing transactions / SFTs) et prêts/emprunts de titres** [1]. Pour ces opérations, les remises de collatéral ne sont pas reconnues pour réduire l’exposition, mais la compensation des expositions en espèces est autorisée sous certaines conditions, accompagnée d'une majoration [1]. Notamment, les « open repos » (repos sans date limite explicite) ne sont pas éligibles à la compensation (netting) car ils ne remplissent pas la condition de date de règlement finale explicite [5].\n\n2.  **Les expositions hors bilan** :\n    *   Les **engagements de hors bilan** [1]. Le calcul consiste à appliquer les facteurs de conversion prévus dans les règles de solvabilité aux valeurs nominales, avec un plancher (floor) de 10 % [1], [3].\n    *   Les **achats et ventes normalisés en attente de règlement** [1].\n\n3.  **Distinctions et exclusions initiales** :\n    *   Sauf disposition contraire, les sûretés physiques ou financières, les garanties ou les atténuations du risque de crédit acquis ne sont pas utilisées pour réduire la mesure de l'exposition totale [1].\n    *   Les actifs fiduciaires reconnus au bilan mais exclus de la mesure d'exposition constituent une réduction rapportée comme une quantité négative lors de la présentation des dispositions [3]."
+    },
+    {
+      "id": "q033",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 38638.9,
+      "reponse": "Le principe régissant la saine gestion du risque opérationnel est présent dans le corpus sous la forme d'un ensemble de principes couvrant plusieurs domaines spécifiques. Les passages fournis détaillent les composants de ce cadre de gestion (ORMF) et énumèrent plusieurs principes spécifiques :\n\n**Composants du cadre de gestion (ORMF)**\nLes principes couvrent la gouvernance, l'environnement de gestion des risques, les technologies de l'information et de la communication (TIC), la planification de la continuité d'activité et le rôle de la publication (disclosure) ; ces éléments sont intégrés au cadre de gestion du risque opérationnel et au cadre de gestion des risques global du groupe [3].\n\n**Principes spécifiques mentionnés dans le corpus :**\n\n*   **Principe 1** : Le conseil d'administration doit prendre l'initiative d'établir une solide culture de gestion des risques, mise en œuvre par la haute direction, en fixant des normes et des incitations pour un comportement professionnel et responsable [1].\n*   **Principe 3** : Le conseil d'administration doit approuver et examiner périodiquement le cadre de gestion du risque opérationnel, et s'assurer que la haute direction met en œuvre efficacement les politiques, processus et systèmes de ce cadre à tous les niveaux de décision [4].\n*   **Principe 4** : Le conseil d'administration doit approuver et examiner périodiquement une déclaration de l'appétit et de la tolérance au risque opérationnel qui articule la nature, les types et les niveaux de risque opérationnel que la banque est disposée à assumer [2].\n\nLe texte mentionne également l'importance de contrôles internes solides comme un aspect critique de la gestion du risque opérationnel, exigé par le conseil d'administration pour établir de claires lignes de responsabilité [2]."
+    },
+    {
+      "id": "q034",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24299.0,
+      "reponse": "Selon le corpus fourni, les établissements doivent transmettre aux autorités compétentes les informations suivantes afin d'effectuer l'évaluation ICAAP et ILAAP dans le cadre du SREP :\n\n*   **Un document synthétique (« reader’s manual »)** : Ce document facilite l'évaluation en fournissant un index étendu des documents et leur statut, un aperçu de la localisation des éléments d'information spécifiés dans la documentation de l'établissement, ainsi que d'autres informations pertinentes pour l'autorité compétente au début de l'évaluation [1].\n*   **Informations générales** :\n    *   Sur les cadres ICAAP et ILAAP [1].\n    *   Sur le modèle d’affaires (business model) et la stratégie [1].\n    *   Sur les arrangements de gouvernance [1].\n    *   Sur les programmes de tests de résistance (stress testing) [1].\n*   **Informations spécifiques à l’ICAAP** : Spécifiées à la section 6 des Lignes directrices de l'EBA [1].\n*   **Informations spécifiques à l’ILAAP** : Spécifiées à la section 7 des Lignes directrices de l'EBA [1].\n*   **Résumé des principales conclusions** issues de l'ICAAP et de l'ILAAP, ainsi que des informations relatives à l'assurance qualité, tel que spécifié à la section 8 des Lignes directrices [1].\n\nDe manière plus générale, ces informations incluent les politiques et documents méthodologiques de l'établissement, les documents opérationnels et d'autres pièces justificatives attestant de l'utilisation de l'ICAAP et de l'ILAAP dans la gestion des risques et la gestion stratégique de l'institution [1] [5]."
+    },
+    {
+      "id": "q035",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 21777.7,
+      "reponse": "L'article 400 (2) du CRR prévoit la possibilité laissée à l'appréciation des autorités compétentes d'exempter totalement ou partiellement certaines expositions de l'application de l'article 395 du CRR (qui concerne les limites aux grands risques) [1].\n\nCes exemptions peuvent être mises en œuvre par les États Membres en application de l'article 493(3) du CRR pendant une période transitoire allant jusqu'au 31 décembre 2028 [1].\n\nDe plus, CRR2 introduit deux nouvelles exemptions laissées à l'appréciation des autorités compétentes, spécifiquement :\n*   Les expositions sous la forme d'une sûreté ou d'une garantie pour les prêts immobiliers résidentiels, fournie par un fournisseur de protection éligible au sens de l'article 201 du CRR (point k) de l'article 400 (2)) [1].\n*   Les expositions sous la forme d'une garantie pour les crédits à l'exportation bénéficiant d'un soutien public, fournie par un organisme public de crédit à l'exportation (point l) de l'article 400 (2)) [1].\n\nIl est également mentionné qu'une exposition action garantie par un garant de bonne qualité peut être exemptée des limites Grands Risques, sous réserve du respect des critères d'éligibilité CRM, et que la Q&A 4915 porte sur les modifications apportées par CRR2 à l'exemption visée à l'article 400(1)(j) du CRR, bien que cette dernière référence concerne le paragraphe (1) et non (2) [4]."
+    },
+    {
+      "id": "q036",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 11317.4,
+      "reponse": "L’article 3 de l’arrêté du 23 décembre 2013 permet l’inclusion des fonds mutuels de garantie dans les fonds propres de base de catégorie 1 des sociétés de financement [1].\n\nCette inclusion est soumise au respect des conditions d’éligibilité visées aux articles 28 et 29 du CRR, à l’exception de la condition relative au classement comptable en tant que capitaux propres (article 28 1. c) du CRR) [1]."
+    },
+    {
+      "id": "q037",
+      "type": "reference_explicite",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 10187.5,
+      "reponse": "Les passages fournis mentionnent que l’inclusion des fonds mutuels de garantie dans les fonds propres de base de catégorie 1 est soumise au respect « des conditions d’éligibilité visées aux articles 28 et 29 du CRR » [1], mais ils ne détaillent pas le contenu de ces conditions. Le corpus ne contient pas de texte indiquant précisément quelles sont les conditions posées par ces articles."
+    },
+    {
+      "id": "q038",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 18432.9,
+      "reponse": "L'exemption qui s'applique aux expositions sur une entité du secteur public, résultant des dépôts que l'Établissement est légalement tenu de transférer à cette entité aux fins du financement d'investissements d'intérêt général (conformément à l'article 429 bis-1-j), est désormais applicable sans autorisation préalable du superviseur [1]. Cette exemption est traitée conformément à l'article 116-4 du CRR [1].\n\nDe plus, cet article mentionne que l'article 429 bis du CRR prévoit différentes exemptions dans le calcul des expositions, concernant notamment l'épargne réglementée transférée à un établissement public [2]."
+    },
+    {
+      "id": "q039",
+      "type": "reference_explicite",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 25340.5,
+      "reponse": ""
+    },
+    {
+      "id": "q040",
+      "type": "reference_explicite",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22429.1,
+      "reponse": "Les passages fournis ne contiennent pas le contenu de l'annexe 3 du dispositif de Bâle II. Ils mentionnent simplement que la charge de capital pour les transactions non dénouées doit être calculée conformément à cette annexe [1] et que les normes relatives au risque de contrepartie sont définies dans l'annexe 4 [3], mais aucun passage ne détaille les règles spécifiques de l'annexe 3 elle-même."
+    },
+    {
+      "id": "q041",
+      "type": "reference_explicite",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24684.9,
+      "reponse": "Les passages fournis se concentrent sur les modalités de calcul des ratios prudentiels dans le cadre de la **CRD V** [1], [2] et mélangent les références avec la **CRD IV** uniquement pour mentionner une règle non applicable depuis le 1er janvier 2018 concernant la déduction des prêts aux dirigeants et actionnaires [3]. Ils ne fournissent pas les modalités de calcul générales des ratios prudentiels spécifiques au cadre juridique de la CRD IV."
+    }
+  ]
+}
