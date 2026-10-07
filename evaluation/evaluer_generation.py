@@ -27,6 +27,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+import httpx
 import psycopg
 
 from src.config import parametres
@@ -121,17 +122,30 @@ def main() -> int:
 
     client = construire_client()
     details: list[dict] = []
+    interruption: str | None = None
 
     with psycopg.connect(parametres.dsn) as connexion:
         rechercher(connexion, "amorçage", arguments.config)
         for groupe, libelle in ((hors_corpus, "hors-corpus"), (dans_corpus, "dans-corpus")):
             for index, question in enumerate(groupe, start=1):
-                detail = traiter(connexion, client, question, arguments.config)
+                # Un quota journalier épuisé à la cinquantième question ne doit pas effacer
+                # les quarante-neuf précédentes : on s'arrête, et on écrit ce qu'on a.
+                try:
+                    detail = traiter(connexion, client, question, arguments.config)
+                except httpx.HTTPStatusError as erreur:
+                    interruption = (
+                        f"{question['id']} : HTTP {erreur.response.status_code} — "
+                        f"{erreur.response.text[:160]}"
+                    )
+                    print(f"\n  INTERROMPU sur {interruption}")
+                    break
                 details.append(detail)
                 marque = "abstention" if detail["abstention"] else (
                     f"cite {detail['citations']}" if detail["citations"] else "SANS CITATION"
                 )
                 print(f"  [{libelle} {index}/{len(groupe)}] {question['id']} — {marque}")
+            if interruption:
+                break
 
     # --- métriques ---
     hc = [d for d in details if d["type"] == "hors_corpus"]
@@ -149,7 +163,7 @@ def main() -> int:
     faux_positifs = [d["id"] for d in hc if not d["abstention"]]
     sans_citation = [d["id"] for d in repondues if not d["citations"]]
     citations_inventees = [d["id"] for d in repondues if d["citations_invalides"]]
-    latences = sorted(d["latence_ms"] for d in details)
+    latences = sorted(d["latence_ms"] for d in details) or [0.0]
 
     print(f"\n{'=' * 64}")
     print(f"abstention correcte hors-corpus   {abstentions_correctes}/{len(hc)} "
@@ -183,6 +197,8 @@ def main() -> int:
                 "nb_hors_corpus": len(hc),
                 "nb_dans_corpus": len(dc),
                 "latence_mediane_ms": round(statistics.median(latences), 1),
+                "interrompu": interruption,
+                "nb_questions_traitees": len(details),
                 "details": details,
             },
             ensure_ascii=False,
