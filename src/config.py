@@ -30,9 +30,13 @@ class Parametres(BaseSettings):
     modele_reranker_leger: str = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 
     # --- Génération ---
+    # anthropic | openai | ollama. « openai » désigne tout fournisseur exposant une API
+    # compatible OpenAI (Groq, Mistral, OpenRouter, Together…), choisi par llm_base_url.
     llm_fournisseur: str = "anthropic"
     llm_modele: str = "claude-sonnet-5"
     anthropic_api_key: str = ""
+    llm_base_url: str = ""
+    llm_cle_api: str = ""
     ollama_url: str = "http://localhost:11434"
 
     # --- Recherche ---

@@ -65,10 +65,39 @@ def charger_questions() -> list[dict]:
     return questions
 
 
+def _rechercher_resilient(
+    connexion: psycopg.Connection, question: str, configuration: str, top_k: int
+):
+    """Recherche en retentant une fois sur perte de connexion.
+
+    Une évaluation de la configuration bge dure plus d'une heure et demie sur CPU. Si la
+    machine s'endort, Docker redémarre le conteneur PostgreSQL et la connexion meurt avec
+    un `AdminShutdown` — toute l'évaluation est perdue à la dernière question. Le coût d'une
+    reconnexion est négligeable devant celui d'un run perdu.
+
+    Retourne (réponse, nouvelle_connexion) : l'appelant doit adopter la connexion retournée,
+    l'ancienne pouvant avoir été remplacée.
+    """
+    try:
+        return rechercher(connexion, question, configuration, top_k=top_k), connexion
+    except psycopg.OperationalError as erreur:
+        print(f"  connexion perdue ({erreur.__class__.__name__}), reconnexion…")
+        try:
+            connexion.close()
+        except psycopg.Error:
+            pass
+        nouvelle = psycopg.connect(parametres.dsn)
+        return rechercher(nouvelle, question, configuration, top_k=top_k), nouvelle
+
+
 def evaluer_configuration(
     connexion: psycopg.Connection, questions: list[dict], configuration: str
-) -> dict:
-    """Évalue une configuration sur les questions dans-corpus."""
+) -> tuple[dict, psycopg.Connection]:
+    """Évalue une configuration sur les questions dans-corpus.
+
+    Retourne le rapport et la connexion à utiliser ensuite : elle peut avoir été rétablie
+    en cours de route.
+    """
     dans_corpus = [q for q in questions if q["chunks_pertinents"]]
 
     rangs_premiers: list[int | None] = []  # rang du premier chunk pertinent, None si absent
@@ -77,7 +106,9 @@ def evaluer_configuration(
 
     for question in dans_corpus:
         pertinents = set(question["chunks_pertinents"])
-        reponse = rechercher(connexion, question["question"], configuration, top_k=max(VALEURS_K))
+        reponse, connexion = _rechercher_resilient(
+            connexion, question["question"], configuration, max(VALEURS_K)
+        )
         latences.append(reponse.latence_ms)
 
         rang_premier = next(
@@ -114,7 +145,7 @@ def evaluer_configuration(
         "latence_mediane_ms": round(statistics.median(latences_triees), 1),
         "latence_p95_ms": round(latences_triees[int(len(latences_triees) * 0.95)], 1),
         "details": details,
-    }
+    }, connexion
 
 
 def main() -> int:
@@ -142,7 +173,7 @@ def main() -> int:
 
         for configuration in configurations:
             print(f"\n=== {configuration} ===")
-            rapport = evaluer_configuration(connexion, questions, configuration)
+            rapport, connexion = evaluer_configuration(connexion, questions, configuration)
             rapports.append(rapport)
             for cle in (*[f"recall@{k}" for k in VALEURS_K], "mrr",
                         "latence_mediane_ms", "latence_p95_ms"):
