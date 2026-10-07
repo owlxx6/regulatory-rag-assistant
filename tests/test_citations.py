@@ -77,3 +77,22 @@ def test_formatage_numerote_les_passages_pour_la_citation():
     rendu = formater_passages(passages)
     assert rendu.startswith("[1] Doc A, §1, p. 1\nContenu A")
     assert "[2] Doc B, §2, p. 2\nContenu B" in rendu
+
+
+def test_crochets_pleine_largeur_reconnus():
+    """Les modèles gpt-oss citent avec 【1】 ; refuser cette forme fausse la mesure."""
+    resultat = verifier("Le coussin est fixé à 2,5 %【1】.", nb_passages=5)
+    assert resultat.numeros_cites == [1]
+    assert not resultat.suspecte
+    assert resultat.valide
+
+
+def test_crochets_mixtes_dans_une_meme_reponse():
+    resultat = verifier("Premier point【2】. Second point [4].", nb_passages=5)
+    assert resultat.numeros_cites == [2, 4]
+
+
+def test_crochet_pleine_largeur_hors_plage_reste_invalide():
+    resultat = verifier("Selon la source【9】, le ratio est de 3 %.", nb_passages=5)
+    assert resultat.numeros_invalides == [9]
+    assert not resultat.valide

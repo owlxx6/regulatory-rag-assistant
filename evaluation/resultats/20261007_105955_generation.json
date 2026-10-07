@@ -1,0 +1,723 @@
+{
+  "date": "2026-10-07T10:59:55",
+  "configuration_recherche": "hybride_rerank_leger",
+  "fournisseur": "openai",
+  "modele": "openai/gpt-oss-120b",
+  "taux_abstention_correcte": 0.9333,
+  "taux_citation_valide": 0.8108,
+  "nb_hors_corpus": 15,
+  "nb_dans_corpus": 41,
+  "latence_mediane_ms": 20723.0,
+  "details": [
+    {
+      "id": "q042",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 11330.9,
+      "reponse": ": les passages fournis ne mentionnent aucun taux directeur de la Banque centrale européenne. Aucun document du corpus ne contient cette donnée, il manque donc l’information requise."
+    },
+    {
+      "id": "q043",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 11567.7,
+      "reponse": ": les passages fournis ne contiennent aucune mention des exigences de solvabilité applicables aux entreprises d’assurance dans le cadre de Solvabilité II. Il manque donc les dispositions réglementaires relatives à Solvabilité II."
+    },
+    {
+      "id": "q044",
+      "type": "hors_corpus",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 11746.8,
+      "reponse": "Le règlement (UE) 2016/679 – le RGPD – impose aux établissements de s’assurer que toutes les opérations de collecte, d’utilisation et de transmission de données à caractère personnel respectent les exigences prévues par ce texte.  \n\n* Lorsqu’ils recueillent des informations auprès de tiers (par exemple des employeurs, des autorités publiques ou des bases de données), les institutions doivent veill"
+    },
+    {
+      "id": "q045",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 11011.4,
+      "reponse": ": les passages fournis ne contiennent aucune disposition de la directive MiFID II relative à la protection des investisseurs. Ils traitent de la classification des entreprises d’investissement, de la diligence en titrisation et de règles de Bâle, mais aucune mention n’est faite des exigences de protection des investisseurs prévues par MiFID II."
+    },
+    {
+      "id": "q046",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 19446.2,
+      "reponse": "– Aucun des passages fournis ne mentionne le montant du capital social minimal requis pour créer une société d’assurance en France."
+    },
+    {
+      "id": "q047",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 18425.2,
+      "reponse": ": les passages fournis portent sur les exigences prudentielles, les pondérations de risque et les coussins de fonds propres, mais aucun d’entre eux ne mentionne le taux normal de TVA applicable aux services bancaires. Il manque donc une référence réglementaire contenant cette information."
+    },
+    {
+      "id": "q048",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 20738.4,
+      "reponse": "– Les passages fournis ne contiennent aucune description ou disposition relative à la norme IFRS 17 ni à la manière dont elle traite les contrats d’assurance. Aucun extrait ne traite de ce sujet."
+    },
+    {
+      "id": "q049",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 20085.7,
+      "reponse": "– Les passages fournis ne contiennent pas d’énoncé précis des obligations imposées aux émetteurs de crypto‑actifs par le règlement MiCA. Ils mentionnent seulement l’applicabilité du règlement et le traitement prudentiel des tokens, sans détailler les exigences réglementaires spécifiques aux émetteurs."
+    },
+    {
+      "id": "q050",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22400.6,
+      "reponse": "– Les passages fournis traitent du ratio de liquidité (LCR), des exigences de capital et de MREL, de la qualification des établissements de petite taille et non‑complexes, ainsi que des dérogations au plafonnement des entrées de trésorerie, mais ils ne contiennent aucune information sur la procédure d’agrément d’un établissement de paiement auprès de Bank Al‑Maghrib. Sans ce texte, il est impossib"
+    },
+    {
+      "id": "q051",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22470.6,
+      "reponse": "– Aucun des passages fournis ne précise la durée exacte du délai légal de rétractation applicable aux crédits à la consommation. Les extraits mentionnent l’existence d’une période de réflexion et de rétractation pour les crédits immobiliers (directive 2014/17/UE) mais ne donnent pas le nombre de jours prévu par la législation."
+    },
+    {
+      "id": "q052",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 25897.6,
+      "reponse": "– les passages fournis ne contiennent aucune information concernant la fixation et la publication du taux d'usure."
+    },
+    {
+      "id": "q053",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 18984.3,
+      "reponse": ": les passages fournis portent sur les règles de conservation du capital (Basel III), le NSFR, le MREL et les exigences prudentielles du CRR/CRD, mais ils ne contiennent aucune information concernant les effets d’une politique d’assouplissement quantitatif (QE) sur les bilans des banques. Aucun passage ne décrit les mécanismes, impacts ou conséquences de telles mesures monétaires."
+    },
+    {
+      "id": "q054",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 23834.5,
+      "reponse": ": les passages fournis ne contiennent aucune donnée relative à la rémunération ou au salaire moyen d’un analyste risques en banque de détail."
+    },
+    {
+      "id": "q055",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24102.5,
+      "reponse": "– Les passages fournis traitent des exigences de MREL, des cadres de résolution, de la titrisation (STS) et des règles de liquidité (LCR), mais ils ne contiennent aucune information relative aux règles encadrant le démarchage bancaire et financier auprès des particuliers."
+    },
+    {
+      "id": "q056",
+      "type": "hors_corpus",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22675.2,
+      "reponse": ": les passages fournis portent sur les exigences de divulgation des agences de notation, les critères d’inclusion d’actifs dans le LCR, les règles de run‑off pour les dépôts stables, les méthodologies d’estimation du PD et le calcul du notional effectif des dérivés de crédit. Aucun de ces extraits ne traite des conditions d’ouverture d’un livret A."
+    },
+    {
+      "id": "q001",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 23239.2,
+      "reponse": "Le ratio minimal de fonds propres de base de catégorie 1 (CET1) est fixé à **4,5 %** [4].  \n\n(Le même niveau de CET1 apparaît également comme exigence minimale dans les étapes de mise en œuvre de Basel III : 4,5 % à compter du 1 janvier 2015) [5]."
+    },
+    {
+      "id": "q002",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 18853.7,
+      "reponse": "Le ratio minimal de fonds propres de catégorie 1 (Tier 1) est fixé à **6 %** du total des risques pondérés. [4]"
+    },
+    {
+      "id": "q003",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 26926.1,
+      "reponse": "Le ratio minimal de fonds propres totaux que les banques doivent détenir est de **8 % des actifs pondérés par le risque** ; c’est le niveau de couverture requis pour l’ensemble des risques (crédit, marché, opérationnel, etc.) [1].  \n\nCette exigence de 8 % apparaît également comme référence dans le cadre de la MREL, où l’autorité de résolution ajuste les cibles afin d’assurer le respect de l’exigen"
+    },
+    {
+      "id": "q004",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 17993.4,
+      "reponse": "Le ratio de levier minimal exigé est de **3 %**. [1][3]"
+    },
+    {
+      "id": "q005",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 16531.5,
+      "reponse": "Le niveau minimal du LCR à son entrée en vigueur (le 1 janvier 2015) était de 60 % [2]."
+    },
+    {
+      "id": "q006",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 19304.7,
+      "reponse": "Le NSFR doit être au moins égal à **100 %** en permanence. [1] [3]"
+    },
+    {
+      "id": "q007",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 18071.1,
+      "reponse": "Le coussin de conservation est fixé obligatoirement à **2,5 % des risques pondérés**【1】."
+    },
+    {
+      "id": "q008",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 25047.4,
+      "reponse": "La conversion (ou la réduction) des instruments de fonds propres additionnels de catégorie 1 (AT1) doit être déclenchée lorsque le ratio CET1 de l’établissement tombe en dessous d’un seuil fixé à **au moins 5,125 %** de ses actifs pondérés en fonction des risques. [1]"
+    },
+    {
+      "id": "q009",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 17974.5,
+      "reponse": "En combinant le minimum réglementaire de Common Equity Tier 1 (CET1) de 4,5 % avec le coussin de conservation obligatoire de 2,5 % des actifs pondérés, l’exigence totale de CET1 s’élève à **7,0 %** du total des actifs pondérés par les risques.  \n\n- Minimum réglementaire : 4,5 % CET1 [1]  \n- Coussin de conservation : 2,5 % des risques pondérés [5]"
+    },
+    {
+      "id": "q010",
+      "type": "factuelle",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 17118.9,
+      "reponse": "– Aucun des passages fournis ne précise la décote minimale appliquée aux actifs liquides de niveau 2A. Les seuls pourcentages de décote mentionnés concernent les actifs de niveau 2B (25 %) et les limites de caps, mais aucune donnée n’est donnée pour le niveau 2A."
+    },
+    {
+      "id": "q011",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 12755.8,
+      "reponse": "La part des actifs de niveau 2 ne doit pas excéder **40 %** du stock total d’actifs liquides de haute qualité (HQLA), après application des haircuts. [3][5]"
+    },
+    {
+      "id": "q012",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 23621.2,
+      "reponse": "Le pourcentage de risque pondéré applicable aux expositions sur actions non cotées de nature spéculative est de **400 %** [1]."
+    },
+    {
+      "id": "q013",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 13197.4,
+      "reponse": "Le LCR doit permettre à une banque de faire face à ses besoins de liquidité pendant une période de tensions de **30 jours calendaires** [1][3]."
+    },
+    {
+      "id": "q014",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 15934.9,
+      "reponse": "Le ratio de financement stable net (NSFR) est calculé sur un horizon d’un an, avec la prise en compte d’un palier infra‑annuel à 6 mois pour limiter les effets de seuil【1】. Cette même période d’un an est rappelée dans les textes de Bâle III, qui précisent que le NSFR s’applique « over a one‑year horizon »【2】."
+    },
+    {
+      "id": "q015",
+      "type": "factuelle",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 20791.7,
+      "reponse": "Dans l’approche standard révisée, les expositions garanties par une hypothèque sur un bien immobilier résidentiel (non‑ADC) bénéficient de la « loan‑splitting approach » prévue à l’article 125 (1) : la tranche de l’exposition qui ne représente pas plus de 55 % de la valeur du bien est pondérée à 20 % de risque [4]."
+    },
+    {
+      "id": "q016",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 20662.1,
+      "reponse": "Le **Net Stable Funding Ratio (NSFR)** est un ratio prudentiel qui mesure la capacité d’un établissement bancaire à couvrir, sur un horizon d’un an, les besoins de financement stable générés par ses actifs et ses engagements hors‑bilan : il compare les **ressources stables disponibles (ASF)** aux **besoins de financement stable requis (RSF)**, le ratio devant être **au moins égal à 100 %**【4†p.6‑9"
+    },
+    {
+      "id": "q017",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2,
+        3,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 20909.0,
+      "reponse": "Le ratio de liquidité à court terme, appelé **Liquidity Coverage Ratio (LCR)**, mesure la capacité d’un établissement de crédit à faire face à ses sorties nettes de trésorerie pendant une période de tensions de **30 jours calendaires**. Il est calculé comme le **rapport entre le coussin d’actifs liquides (HQLA non grevés)** dont dispose l’établissement et ses **sorties nettes de trésorerie** sur c"
+    },
+    {
+      "id": "q018",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 14114.4,
+      "reponse": "Un actif liquide de haute qualité (HQLA) est un actif qui :\n\n* **peut être converti facilement et immédiatement en liquidités avec peu ou aucune perte de valeur**, même dans un scénario de stress ; la liquidité de l’actif dépend du scénario de stress sous‑jacent, du volume à monétiser et du délai considéré [1].  \n* **est « liquide sur les marchés pendant une période de stress »** et, idéalement, a"
+    },
+    {
+      "id": "q019",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 23259.3,
+      "reponse": "Le ratio de levier est une mesure « non‑basée sur le risque » qui compare les fonds propres de catégorie 1 (Tier 1) aux expositions totales d’une banque :\n\n- **Définition** – Il s’agit du rapport entre les fonds propres Tier 1 (CET1 + AT1) et la « mesure totale d’expositions », qui regroupe : les actifs du bilan (y compris les dérivés, les opérations de pension et les prêts/emprunts de titres) ain"
+    },
+    {
+      "id": "q020",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 30233.2,
+      "reponse": "Les fonds propres de base de catégorie 1 (Common Equity Tier 1 ou CET 1) comprennent : le capital social, les primes d’émission associées, les réserves, les résultats non distribués ainsi que les fonds bancaires destinés aux risques bancaires généraux [1]."
+    },
+    {
+      "id": "q021",
+      "type": "definition",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 21801.9,
+      "reponse": ": les passages fournis indiquent uniquement que les critères de définition d’un établissement de petite taille et non‑complexe sont énoncés à l’article 4 (1) (145) du CRR, mais ils ne détaillent pas quels sont ces critères. [1][2]"
+    },
+    {
+      "id": "q022",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 19497.3,
+      "reponse": "Le processus interne d’évaluation de l’adéquation du capital (ICAAP) désigne l’ensemble des stratégies et processus que les établissements doivent mettre en place, conformément à l’article 73 de la directive 2013/36/UE, afin d’évaluer et de maintenir de façon continue les montants, types et la répartition du capital interne qu’ils considèrent suffisants pour couvrir la nature et le niveau des risq"
+    },
+    {
+      "id": "q023",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24439.7,
+      "reponse": "Le processus interne d’évaluation de l’adéquation de la liquidité (ILAAP) est le cadre que les établissements doivent mettre en place, conformément à l’article 86 de la directive 2013/36/UE, afin d’assurer l’identification, la mesure, la gestion et le suivi du risque de liquidité sur un ensemble de horizons temporels appropriés et de garantir le maintien de niveaux suffisants de buffers de liquidi"
+    },
+    {
+      "id": "q024",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 16751.0,
+      "reponse": "Le risque opérationnel est défini comme « le risque de pertes découlant d’une inadéquation ou d’une défaillance des processus, du personnel et des systèmes internes ou d’évènements extérieurs, incluant, sans s’y limiter, le risque juridique, le risque de modèle ou le risque lié aux technologies de l’information et de la communication (TIC), à l’exclusion toutefois du risque stratégique et de réput"
+    },
+    {
+      "id": "q025",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 21059.4,
+      "reponse": "Le financement d’immobilier commercial à forte volatilité (HVCRE) désigne le financement de biens immobiliers commerciaux dont le taux de perte est plus volatile (c’est‑à‑dire dont la corrélation d’actif est plus élevée) que celle des autres types de « specialised lending ».  \n\nIl comprend :  \n\n* les expositions immobilières commerciales garanties par des biens que le superviseur national classe c"
+    },
+    {
+      "id": "q026",
+      "type": "definition",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 16691.2,
+      "reponse": "Le facteur de financement stable disponible (ASF) est le pourcentage appliqué à chaque catégorie de fonds propres et de passifs — selon la stabilité relative de la source de financement (maturité contractuelle, propension des fournisseurs à retirer leurs fonds) — qui sert à pondérer la valeur comptable de ces éléments afin de calculer le montant total d’ASF disponible pour l’établissement 【1†L17-L"
+    },
+    {
+      "id": "q027",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 25302.1,
+      "reponse": "Les fonds propres réglementaires sont structurés en plusieurs « catégories » :\n\n* **Fonds propres de base de catégorie 1 (Common Equity Tier 1 – CET 1)** : il s’agit du capital social, des primes d’émission, des réserves, des résultats non distribués et des fonds bancaires pour risques bancaires généraux. Ces instruments doivent être totalement flexibles et perpétuels [1].  \n\n* **Fonds propres add"
+    },
+    {
+      "id": "q028",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        2,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 27886.3,
+      "reponse": "Les actifs liquides de haute qualité (HQLA) sont regroupés en trois niveaux :\n\n* **Niveau 1** – actifs considérés comme de la plus haute qualité. Le corpus ne précise aucune décote appliquée à ces actifs [2].\n\n* **Niveau 2A** – actifs de qualité intermédiaire. Le corpus ne mentionne aucune décote spécifique pour ce niveau [2].\n\n* **Niveau 2B** – actifs de qualité inférieure au sein des HQLA.  \n  *"
+    },
+    {
+      "id": "q029",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 21151.8,
+      "reponse": "Les exigences de publication au titre du Pilier 3, telles que décrites dans le corpus, portent sur un ensemble d’informations prudentiales :\n\n- **Composition du capital et ratios associés** : les banques doivent divulguer la composition de leurs fonds propres ainsi que les différents ratios de fonds propres (incluant les buffers) [2] ; le numérateur (Tier 1), le dénominateur (mesure d’exposition) "
+    },
+    {
+      "id": "q030",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 28658.4,
+      "reponse": "Les éléments suivants doivent être déduits des fonds propres de base de catégorie 1 (CET 1) :\n\n- les participations détenues dans des entités du secteur financier,  \n- les actifs d’impôt différé,  \n- les intérêts minoritaires (et d’autres éléments similaires)【3】."
+    },
+    {
+      "id": "q031",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        4,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 19071.0,
+      "reponse": "L’EBA fonde l’octroi et le suivi des prêts sur :\n\n* **des critères de crédit** détaillés dans l’Annexe 1 ; il s’agit d’un ensemble de considérations que les établissements doivent prendre en compte pour juger de la pertinence d’une nouvelle exposition ([4]).\n\n* **des exigences d’information et de données** nécessaires à l’évaluation de la solvabilité du client, décrites dans l’Annexe 2 ; ces donné"
+    },
+    {
+      "id": "q032",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24681.9,
+      "reponse": "La mesure de l’exposition totale, qui constitue le dénominateur du ratio de levier, comprend **toutes les expositions au bilan et hors bilan** :  \n\n* **Expositions au bilan** : l’ensemble des actifs comptables du bilan, y compris les dérivés et les opérations de pension/ prêts‑emprunts de titres.  \n* **Expositions hors bilan** : les engagements hors bilan convertis en équivalents de crédit en appl"
+    },
+    {
+      "id": "q033",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        2,
+        4
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22499.0,
+      "reponse": "Les principes qui structurent la « saine gestion du risque opérationnel » sont les suivants :\n\n1. **Principe 1 – Leadership du conseil d’administration**  \n   Le conseil d’administration doit prendre l’initiative en instaurant une forte culture de gestion du risque, mise en œuvre par la direction générale ; il doit fixer des normes et des incitations favorisant un comportement professionnel et res"
+    },
+    {
+      "id": "q034",
+      "type": "multi_passages",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        5
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22106.2,
+      "reponse": "Les établissements doivent fournir à leur autorité de surveillance l’ensemble des éléments décrits dans les Guidelines EBA/GL/2016/10, à savoir :\n\n- **Un document d’« over‑arching » (ou « reader’s manual »)** qui donne un index détaillé de tous les documents fournis, indique leur statut, précise où se trouvent les informations requises et regroupe tout autre renseignement utile au superviseur en d"
+    },
+    {
+      "id": "q035",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1,
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 20707.5,
+      "reponse": "L’article 400 (2) du CRR prévoit que les autorités compétentes peuvent, à leur appréciation, **exempter totalement ou partiellement certaines expositions de l’application de l’article 395 du CRR** (c’est‑à‑dire de la limite aux grands risques) [1].  \n\nDans le cadre du CRR2, cet article introduit deux nouvelles catégories d’exemptions :  \n\n- **k)** exemption des expositions sous forme de sûreté ou "
+    },
+    {
+      "id": "q036",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 24473.6,
+      "reponse": "L’article 3 de l’arrêté du 23 décembre 2013 autorise l’inclusion des fonds mutuels de garantie dans les fonds propres de base de catégorie 1, à condition qu’ils respectent les critères d’éligibilité prévus aux articles 28 et 29 du CRR, mais exclut l’exigence relative à leur classement comptable en tant que capitaux propres (article 28 1.c du CRR) [1]."
+    },
+    {
+      "id": "q037",
+      "type": "reference_explicite",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 19434.4,
+      "reponse": "– les passages fournis ne détaillent pas les conditions d’éligibilité prévues aux articles 28 et 29 du CRR. Ils ne font qu’en faire mention sans en préciser le contenu."
+    },
+    {
+      "id": "q038",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        1
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 19378.7,
+      "reponse": "L’exemption applicable concerne les expositions sur une entité du secteur public, traitées conformément à l’article 116‑4 du CRR et résultant des dépôts que l’établissement est légalement tenu de transférer à cette entité pour le financement d’investissements d’intérêt général (article 429 bis‑1‑j). Cette exemption s’applique désormais sans autorisation préalable du superviseur. [1]"
+    },
+    {
+      "id": "q039",
+      "type": "reference_explicite",
+      "abstention": true,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 22142.4,
+      "reponse": "– Aucun des passages fournis ne contient le texte du paragraphe 50 du document de finalisation de Bâle III, ni aucune référence aux « expositions en actions ». Par conséquent, il est impossible de répondre à la question avec les informations disponibles."
+    },
+    {
+      "id": "q040",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [],
+      "citations_invalides": [],
+      "suspecte": true,
+      "latence_ms": 17724.1,
+      "reponse": "L’annexe 3 du cadre de Bâle II prévoit le calcul d’une charge de capital : les banques doivent appliquer, pour les transactions – titres, marchandises ou changes – qui ont échoué ou qui restent non dénouées (et notamment lorsqu’elles ne sont pas traitées via un mécanisme « delivery‑versus‑payment » ou « payment‑versus‑payment »), une charge de capital telle que définie dans l’annexe 3 du cadre de "
+    },
+    {
+      "id": "q041",
+      "type": "reference_explicite",
+      "abstention": false,
+      "abstention_structurelle": false,
+      "citations": [
+        3
+      ],
+      "citations_invalides": [],
+      "suspecte": false,
+      "latence_ms": 21676.9,
+      "reponse": "Les modalités de calcul des ratios prudentiels prévus par la CRD IV reposent essentiellement sur le dispositif d’« prudent valuation » instauré par le règlement délégué (UE) n° 2016/101 du 26 octobre 2015. Ce dispositif impose aux établissements de mettre en place une méthode d’évaluation prudente afin de calculer des « adjustments of prudent valuation » (AVAs) qui sont ensuite déduits des fonds p"
+    }
+  ]
+}

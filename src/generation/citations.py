@@ -12,7 +12,11 @@ from dataclasses import dataclass
 
 from src.generation.prompts import MARQUEUR_ABSTENTION
 
-_CITATION = re.compile(r"\[(\d{1,2})\]")
+# Les crochets pleine largeur 【 】 (U+3010/U+3011) sont acceptés au même titre que les
+# crochets ASCII : les modèles de la famille gpt-oss les émettent spontanément, et refuser
+# cette forme faisait compter comme « sans citation » des réponses correctement sourcées —
+# un taux de citation mesuré à 0,81 au lieu de sa valeur réelle.
+_CITATION = re.compile(r"[\[【](\d{1,2})[\]】]")
 
 
 @dataclass
