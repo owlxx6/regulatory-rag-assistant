@@ -52,6 +52,27 @@ WHERE document_id = … AND page_debut <= … AND page_fin >= …;
 système qu'on évalue — on surestimerait son rappel. Pour chaque question, vérifier dans le PDF
 qu'il n'existe pas d'autre passage pertinent que la recherche aurait manqué.
 
+## Fiabilité des runs longs
+
+Trois précautions, chacune tirée d'un run perdu :
+
+```bash
+HF_HUB_OFFLINE=1 caffeinate -i python evaluation/evaluer.py
+```
+
+**`HF_HUB_OFFLINE=1`** force la résolution locale des modèles. Ils sont tous en cache après la
+première utilisation, et interroger Hugging Face à chaque démarrage expose à des échecs
+intermittents : un run a été perdu sur un `Unrecognized processing class`, alors que le cache
+était complet et que le chargement direct fonctionnait. Hors ligne, le démarrage est aussi plus
+rapide et surtout déterministe.
+
+**`caffeinate -i`** empêche la mise en veille. Un run de la configuration bge dure une heure et
+demie : si la machine s'endort, Docker redémarre le conteneur PostgreSQL et la connexion meurt.
+`evaluer.py` se reconnecte désormais, mais mieux vaut ne pas provoquer la coupure.
+
+**Détacher le processus** (`nohup … &`) pour un run de plus de dix minutes, sans quoi il meurt
+avec le terminal qui l'a lancé.
+
 ## Lancer l'évaluation
 
 ```bash
