@@ -16,13 +16,14 @@ jobs:
           python-version: "3.11"
           cache: pip
 
+      # anthropic et httpx : le client LLM est testé sans réseau (réessais, limitation de débit).
       # torch est volumineux et n'est pas nécessaire aux tests d'extraction et de découpage,
       # qui n'ont besoin que de pymupdf et du tokenizer. On installe le strict nécessaire
       # pour garder la CI sous la minute.
       - name: Installer les dépendances de test
         run: |
           python -m pip install --upgrade pip
-          pip install pymupdf pydantic pydantic-settings transformers pytest ruff
+          pip install pymupdf pydantic pydantic-settings transformers anthropic httpx pytest ruff
 
       - name: Lint
         run: ruff check src/ scripts/ evaluation/ tests/
