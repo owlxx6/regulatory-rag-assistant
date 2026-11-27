@@ -19,13 +19,13 @@ valeur au reste.
 **Objectif.** Remplir le tableau de résultats du README avec des chiffres produits par
 `evaluer.py`.
 
-| # | Tâche | Qui | Charge |
-|---|---|---|---|
-| A1 | Annoter les 41 questions dans-corpus | Taha | ~2 h |
-| A2 | Lancer `evaluer.py` sur les cinq configurations | Claude | 30 min machine |
-| A3 | Remplir le tableau du README, versionner le JSON de résultats | Claude | 15 min |
-| A4 | Trancher l'arbitrage reranking sur le gain de recall mesuré | décision commune | 15 min |
-| A5 | Vérifier le démarrage depuis un clone vierge | Claude | 30 min |
+| # | Tâche | Charge |
+|---|---|---|
+| A1 | Annoter les 41 questions dans-corpus | ~2 h |
+| A2 | Lancer `evaluer.py` sur les cinq configurations | 30 min machine |
+| A3 | Remplir le tableau du README, versionner le JSON de résultats | 15 min |
+| A4 | Trancher l'arbitrage reranking sur le gain de recall mesuré | 15 min |
+| A5 | Vérifier le démarrage depuis un clone vierge | 30 min |
 
 **Fini quand.** Le README affiche les recalls, le MRR et les latences des cinq configurations,
 et `docs/decisions.md` porte la décision sur le reranking avec ses chiffres.
@@ -45,15 +45,14 @@ le modèle prescrit (139 s), et assumer l'échec du budget de 2 s en l'expliquan
 
 **Objectif.** Rendre le projet présentable et vérifié de bout en bout.
 
-| # | Tâche | Qui | Charge |
-|---|---|---|---|
-| B1 | Renseigner `ANTHROPIC_API_KEY` dans `.env` | Taha | 2 min |
-| B2 | Premier appel réel de la chaîne de génération | Claude | 15 min |
-| B3 | Mesurer le taux d'abstention sur les 15 questions hors-corpus | Claude | 30 min |
-| B4 | Vérifier le taux de citation valide sur les questions dans-corpus | Claude | 20 min |
-| B5 | Capture ou GIF de démonstration pour le README | Claude | 20 min |
-| B6 | Décider du sort de `task_plan.md`, `progress.md`, `findings.md` | Taha | 2 min |
-| B7 | Ligne de CV chiffrée, à partir de `evaluation/resultats/` | Claude | 10 min |
+| # | Tâche | Charge |
+|---|---|---|
+| B1 | Renseigner `ANTHROPIC_API_KEY` dans `.env` | 2 min |
+| B2 | Premier appel réel de la chaîne de génération | 15 min |
+| B3 | Mesurer le taux d'abstention sur les 15 questions hors-corpus | 30 min |
+| B4 | Vérifier le taux de citation valide sur les questions dans-corpus | 20 min |
+| B5 | Capture ou GIF de démonstration pour le README | 20 min |
+| B6 | Ligne de CV chiffrée, à partir de `evaluation/resultats/` | 10 min |
 
 **Fini quand.** Les six critères d'acceptation sont mesurés — atteints ou documentés comme
 manqués — et le README se lit en cinq minutes sans trou.
